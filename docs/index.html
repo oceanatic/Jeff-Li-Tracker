@@ -321,62 +321,74 @@
 
 
     .extraStatsButton{
-      width:100%;
-      margin-top: 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.055);
-      color: var(--text);
-      border-radius: 14px;
-      padding: 15px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    width:100%;
+    margin-top:12px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.055);
+    color:var(--text);
+    border-radius:14px;
+    padding:15px 16px;
+  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+    gap:12px;
+    cursor:pointer;
+    font:inherit;
     text-align:center;
+  
     position:relative;
-      gap:12px;
-      cursor:pointer;
-      font: inherit;
-      transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
-    }
-
-    .extraStatsButton:hover{
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.22);
-      transform: translateY(-1px);
-    }
-
-    .extraStatsButton .extraLabel{
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing:0.35px;
-      text-transform: uppercase;
-    }
-
-    .extraStatsButton .extraArrow{
-      color: var(--accent2);
-      font-size: 20px;
-      font-weight: 900;
-      line-height:1;
-      position:absolute;
-      right:16px;
-}
-    }
-
-    .modalBackdrop{
-      position:fixed;
-      inset:0;
-      z-index:1000;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      background: rgba(0,0,0,0.72);
-      backdrop-filter: blur(6px);
-    }
-
-    .modalBackdrop.open{
-      display:flex;
-    }
+  
+    transition:background 140ms ease,
+               border-color 140ms ease,
+               transform 140ms ease;
+  }
+  
+  .extraStatsButton:hover{
+    background:rgba(255,255,255,0.08);
+    border-color:rgba(255,255,255,0.22);
+    transform:translateY(-1px);
+  }
+  
+  .extraStatsButton .extraLabel{
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:0.35px;
+    text-transform:uppercase;
+  }
+  
+  .extraStatsButton .extraArrow{
+    position:absolute;
+    right:16px;
+  
+    color:var(--accent2);
+    font-size:20px;
+    font-weight:900;
+    line-height:1;
+  }
+  
+  
+  /* POPUP MENU */
+  
+  .modalBackdrop{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+  
+    display:none;
+  
+    align-items:center;
+    justify-content:center;
+  
+    padding:20px;
+    background:rgba(0,0,0,0.72);
+    backdrop-filter:blur(6px);
+  }
+  
+  .modalBackdrop.open{
+    display:flex;
+  }
 
     .modalPanel{
       width:min(720px, 100%);
