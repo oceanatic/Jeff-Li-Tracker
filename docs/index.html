@@ -428,6 +428,110 @@
       line-height:1.5;
     }
 
+    .extraStatsGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .extraStatTile{
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .extraStatTile .k{
+      font-size:12px;
+      color:rgba(234,240,255,0.62);
+      margin-bottom:7px;
+      letter-spacing:0.25px;
+    }
+
+    .extraStatTile .v{
+      color:var(--text);
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:0.2px;
+    }
+
+    .modalNote{
+      margin-top:14px;
+      font-size:12px;
+      color:rgba(234,240,255,0.52);
+    }
+
+    .modalActions{
+      display:flex;
+      justify-content:flex-end;
+      margin-top:18px;
+    }
+
+    .fateButton{
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.055);
+      color:var(--text);
+      border-radius:12px;
+      padding:11px 14px;
+      cursor:pointer;
+      font:inherit;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:0.3px;
+      text-transform:uppercase;
+    }
+
+    .fateButton:hover{
+      background:rgba(255,255,255,0.09);
+      border-color:rgba(255,255,255,0.24);
+    }
+
+    .fateBackdrop{
+      z-index:1100;
+    }
+
+    .fatePanel{
+      width:min(520px, 100%);
+    }
+
+    .fateGrid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:10px;
+    }
+
+    .fateTile{
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04);
+      border-radius:12px;
+      padding:13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .fateTile:last-child{
+      grid-column:1 / -1;
+    }
+
+    .fateName{
+      color:rgba(234,240,255,0.72);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .fateCount{
+      color:var(--text);
+      font-size:20px;
+      font-weight:950;
+    }
+
+    @media (max-width:560px){
+      .extraStatsGrid, .fateGrid{ grid-template-columns:1fr; }
+      .fateTile:last-child{ grid-column:auto; }
+    }
+
     .lead{
       margin-top: 18px;
       padding: 18px 18px;
@@ -464,9 +568,17 @@
         <div class="modalTitle" id="leblancModalTitle">Extra LeBlanc Stats</div>
         <button class="modalClose" id="leblancModalClose" type="button" aria-label="Close">×</button>
       </div>
-      <div class="modalBody" id="leblancModalBody">
-        More LeBlanc stats will go here.
+      <div class="modalBody" id="leblancModalBody"></div>
+    </div>
+  </div>
+
+  <div class="modalBackdrop fateBackdrop" id="fateModal" aria-hidden="true">
+    <div class="modalPanel fatePanel" role="dialog" aria-modal="true" aria-labelledby="fateModalTitle">
+      <div class="modalHeader">
+        <div class="modalTitle" id="fateModalTitle">LeBlanc Fate Breakdown</div>
+        <button class="modalClose" id="fateModalClose" type="button" aria-label="Close">×</button>
       </div>
+      <div class="modalBody" id="fateModalBody"></div>
     </div>
   </div>
 
@@ -645,13 +757,109 @@
     return `${cur.tier} ${cur.division} — ${cur.lp} LP`;
   }
 
-  function openLeblancModal(playerName){
+  function formatSignedNumber(value, suffix = "") {
+    if (!Number.isFinite(value)) return "n/a";
+    const rounded = Math.round(value);
+    const sign = rounded > 0 ? "+" : "";
+    return `${sign}${rounded}${suffix}`;
+  }
+
+  function formatOneDecimal(value, suffix = "") {
+    if (!Number.isFinite(value)) return "n/a";
+    return `${value.toFixed(1)}${suffix}`;
+  }
+
+  function openFateModal(playerName, fateCounts = {}){
+    const modal = document.getElementById("fateModal");
+    const title = document.getElementById("fateModalTitle");
+    const body = document.getElementById("fateModalBody");
+
+    title.textContent = playerName
+      ? `${playerName} — LeBlanc Fate Breakdown`
+      : "LeBlanc Fate Breakdown";
+
+    const names = ["Godlike", "Solid", "Balanced", "Messy", "Doomed"];
+    body.innerHTML = `
+      <div class="fateGrid">
+        ${names.map(name => `
+          <div class="fateTile">
+            <span class="fateName">${name}</span>
+            <span class="fateCount">${Number.isFinite(fateCounts?.[name]) ? fateCounts[name] : 0}</span>
+          </div>
+        `).join("")}
+      </div>
+    `;
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeFateModal(){
+    const modal = document.getElementById("fateModal");
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  function openLeblancModal(playerName, stats){
     const modal = document.getElementById("leblancModal");
     const title = document.getElementById("leblancModalTitle");
+    const body = document.getElementById("leblancModalBody");
+
+    const games = Number.isFinite(stats?.leblancGames) ? stats.leblancGames : 0;
+    const wins = Number.isFinite(stats?.leblancWins) ? stats.leblancWins : 0;
+    const losses = Number.isFinite(stats?.leblancLosses) ? stats.leblancLosses : 0;
+    const wr = games > 0 ? (wins / games) * 100 : null;
+    const wlRatio = losses > 0 ? wins / losses : (wins > 0 ? Infinity : null);
+    const wlText = wlRatio === Infinity
+      ? `∞ (${wins}W / ${losses}L)`
+      : Number.isFinite(wlRatio)
+        ? `${wlRatio.toFixed(2)} (${wins}W / ${losses}L)`
+        : `0W / 0L`;
+
+    const avgKda = Number.isFinite(stats?.leblancAverageKda)
+      ? stats.leblancAverageKda.toFixed(2)
+      : "n/a";
+    const avgLine = [stats?.leblancAverageKills, stats?.leblancAverageDeaths, stats?.leblancAverageAssists]
+      .every(Number.isFinite)
+      ? `${stats.leblancAverageKills.toFixed(1)} / ${stats.leblancAverageDeaths.toFixed(1)} / ${stats.leblancAverageAssists.toFixed(1)}`
+      : "n/a";
+
+    const aiText = formatOneDecimal(stats?.leblancAverageAiScore);
+    const gold15Text = formatSignedNumber(stats?.leblancAverageGoldLead15, "g");
+    const csText = formatOneDecimal(stats?.leblancAverageCsPerMin);
+
+    let lpText = "n/a";
+    if (Number.isFinite(stats?.leblancLpNet)){
+      const value = stats.leblancLpNet;
+      lpText = `${value > 0 ? "+" : ""}${value} LP`;
+    }
 
     title.textContent = playerName
       ? `${playerName} — Extra LeBlanc Stats`
       : "Extra LeBlanc Stats";
+
+    body.innerHTML = `
+      <div class="extraStatsGrid">
+        <div class="extraStatTile"><div class="k">LeBlanc Games</div><div class="v">${games}</div></div>
+        <div class="extraStatTile"><div class="k">LeBlanc Win / Loss Ratio</div><div class="v">${wlText}</div></div>
+        <div class="extraStatTile"><div class="k">LeBlanc Winrate</div><div class="v">${Number.isFinite(wr) ? wr.toFixed(1) + "%" : "n/a"}</div></div>
+        <div class="extraStatTile"><div class="k">Average DeepLoL AI Score</div><div class="v">${aiText}</div></div>
+        <div class="extraStatTile"><div class="k">Average KDA</div><div class="v">${avgKda}<div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:700">${avgLine}</div></div></div>
+        <div class="extraStatTile"><div class="k">Average Gold Lead @ 15</div><div class="v">${gold15Text}</div></div>
+        <div class="extraStatTile"><div class="k">LeBlanc LP Gain / Deficit</div><div class="v">${lpText}</div></div>
+        <div class="extraStatTile"><div class="k">Average CS / Min</div><div class="v">${csText}</div></div>
+      </div>
+      <div class="modalNote">
+        LeBlanc LP is best-effort and only includes games where one match can be cleanly matched to one observed LP change.
+      </div>
+      <div class="modalActions">
+        <button class="fateButton" id="openFateBreakdown" type="button">Fate Breakdown ›</button>
+      </div>
+    `;
+
+    document.getElementById("openFateBreakdown").addEventListener("click", () => {
+      openFateModal(playerName, stats?.leblancFateCounts || {});
+    });
 
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
@@ -664,15 +872,19 @@
   }
 
   document.getElementById("leblancModalClose").addEventListener("click", closeLeblancModal);
+  document.getElementById("fateModalClose").addEventListener("click", closeFateModal);
 
   document.getElementById("leblancModal").addEventListener("click", (event) => {
-    if (event.target.id === "leblancModal"){
-      closeLeblancModal();
-    }
+    if (event.target.id === "leblancModal") closeLeblancModal();
+  });
+
+  document.getElementById("fateModal").addEventListener("click", (event) => {
+    if (event.target.id === "fateModal") closeFateModal();
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape"){
+      closeFateModal();
       closeLeblancModal();
     }
   });
@@ -824,7 +1036,7 @@
       `;
 
     board.querySelector(".extraStatsButton").addEventListener("click", () => {
-        openLeblancModal(displayName(key));
+        openLeblancModal(displayName(key), s);
       });
 
     cards.appendChild(board);
