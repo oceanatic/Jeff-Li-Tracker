@@ -658,7 +658,7 @@
         const currentValue = rankValue(cur.tier, cur.division, cur.lp);
     
         const difference = currentValue - startValue;
-
+    
         if (difference > 0) {
           leadEl.textContent = `${difference} LP UP`;
         } else if (difference < 0) {
@@ -666,17 +666,20 @@
         } else {
           leadEl.textContent = `0 LP`;
         }
-
+      } else {
+        leadEl.textContent = "LP change unavailable";
+      }
+    } else {
+      leadEl.textContent = "LP change unavailable";
+    }
+    
     // Update "(x minutes ago)" every 10s without refetching
     setInterval(() => {
       const updatedIso2 = data?.updatedAt?.iso ?? data?.updatedAt;
       const { display: d2, rel: r2 } = formatLastUpdated(updatedIso2);
       document.getElementById("updated").textContent = r2 ? `${d2} (${r2})` : d2;
     }, 10000);
-  }
-    }
-
-  load();
-</script>
-</body>
-</html>
+    
+    } // closes async function load()
+    
+    load();
