@@ -20,6 +20,15 @@ jobs:
             - "SHA256:U+4664l9ERGhQnwvwD1h/DKKrM8MsFglismUr8Z7j7M"
 
       - run:
+          name: Use latest main
+          command: |
+            ORIGIN_URL="$(git remote get-url origin)"
+            REPO_PATH="$(echo "$ORIGIN_URL" | sed -E 's#https://github.com/##; s#git@github.com:##')"
+            git remote set-url origin "git@github.com:${REPO_PATH}"
+            git fetch origin main
+            git reset --hard origin/main
+
+      - run:
           name: Install Python dependencies
           command: |
             python -m pip install --upgrade pip
@@ -36,15 +45,29 @@ jobs:
             git config user.name "CircleCI Tracker"
             git config user.email "circleci-tracker@users.noreply.github.com"
 
-            # Make sure origin uses SSH so the write deploy key is used
-            ORIGIN_URL="$(git remote get-url origin)"
-            REPO_PATH="$(echo "$ORIGIN_URL" | sed -E 's#https://github.com/##; s#git@github.com:##')"
-            git remote set-url origin "git@github.com:${REPO_PATH}"
-
             git add docs/data.json
 
             if git diff --cached --quiet; then
               echo "No changes to commit."
+              exit 0
+            fi
+
+            git commit -m "Update League tracker data"
+
+            if git push origin HEAD:main; then
+              echo "Tracker update pushed successfully."
+              exit 0
+            fi
+
+            echo "Remote changed during this job. Re-running tracker from newest main..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            python scripts/update.py
+            git add docs/data.json
+
+            if git diff --cached --quiet; then
+              echo "No changes after retry."
               exit 0
             fi
 
