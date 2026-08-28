@@ -829,7 +829,10 @@
     const csText = formatOneDecimal(stats?.leblancAverageCsPerMin);
 
     let lpText = "n/a";
-    if (Number.isFinite(stats?.leblancLpNet)){
+    const lpTrackedGames = Number.isFinite(stats?.leblancLpTrackedGames)
+      ? stats.leblancLpTrackedGames
+      : 0;
+    if (lpTrackedGames > 0 && Number.isFinite(stats?.leblancLpNet)){
       const value = stats.leblancLpNet;
       lpText = `${value > 0 ? "+" : ""}${value} LP`;
     }
