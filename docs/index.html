@@ -98,7 +98,7 @@
 
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 18px;
     }
 
@@ -343,8 +343,8 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <h1>Chucky vs Michael: Race to Emerald</h1>
-        <div class="coverage" id="coverage">Collective Game Count: …</div>
+        <h1>Jeff Li: The Journey to Emerald</h1>
+        <!-- <div class="coverage" id="coverage">Collective Game Count: …</div> -->
       </div>
       <div class="updated" id="updated">Last Updated: …</div>
     </div>
@@ -548,11 +548,11 @@
       const cur = p.current;
       const s = p.stats || {};
 
-      const winrate = cur && cur.winrate != null ? (cur.winrate * 100).toFixed(1) + "%" : "n/a";
+      const winrate = s.games > 0 ? ((s.wins / s.games) * 100).toFixed(1) + "%" : "n/a";
       const peakText = p.peak ? `${p.peak.tier} ${p.peak.division} — ${p.peak.lp} LP` : "n/a";
 
       // accumulate total games (authoritative ladder)
-      const total = (cur && Number.isFinite(cur.games)) ? cur.games : 0;
+      const total = Number.isFinite(s.games) ? s.games : 0;
       totalGamesAllPlayers += total;
 
       const barsHtml = BARS.map((bar) => {
@@ -619,7 +619,7 @@
           <div class="kpi">
             <div class="tile">
               <div class="k">Total Games</div>
-              <div class="v">${cur ? cur.games : (s.games ?? 0)} (W ${cur ? cur.wins : (s.wins ?? 0)} / L ${cur ? cur.losses : (s.losses ?? 0)})</div>
+              <div class="v"> ${s.games ?? 0} (W ${s.wins ?? 0} / L ${s.losses ?? 0}) </div>
             </div>
             <div class="tile">
               <div class="k">Overall Winrate</div>
