@@ -15,6 +15,7 @@ PLAYERS = [
 
 QUEUE_RANKED_SOLO = 420
 QUEUE_TYPE_SOLO = "RANKED_SOLO_5x5"
+LEBLANC_CHAMPION_ID = "7"
 
 OUT_PATH = "docs/data.json"
 
@@ -187,6 +188,13 @@ def update_player(state, p):
             "totalPlaytimeHMS": "0:00:00",
             "games": 0, "wins": 0, "losses": 0,
 
+            # LeBlanc-specific split stats
+            "leblancGames": 0,
+            "leblancWins": 0,
+            "leblancLosses": 0,
+            "leblancWinrate": None,
+            "gamesOffLeblanc": 0,
+
             "champions": {},
             "mostPlayedChampionId": None,
             "highestWinrateChampionId": None,
@@ -261,6 +269,14 @@ def update_player(state, p):
         lp_delta = cur_lp - prev_lp
 
     stats = st["stats"]
+
+    # Ensure older saved data.json files gain the LeBlanc fields automatically.
+    stats.setdefault("leblancGames", 0)
+    stats.setdefault("leblancWins", 0)
+    stats.setdefault("leblancLosses", 0)
+    stats.setdefault("leblancWinrate", None)
+    stats.setdefault("gamesOffLeblanc", 0)
+
     seen = set(st["matchesSeen"])
     backfill = st["backfill"]
 
@@ -388,8 +404,21 @@ def update_player(state, p):
     stats["splitMatchesProcessed"] = len(st["matchesSeen"])
     stats["totalPlaytimeHMS"] = seconds_to_hms(stats["totalPlaytimeSeconds"])
 
-    # Derived champ stats
+    # Derived champion stats
     champs = stats["champions"]
+
+    # LeBlanc is champion ID 7.
+    leblanc = champs.get(LEBLANC_CHAMPION_ID, {})
+    leblanc_games = int(leblanc.get("games", 0))
+    leblanc_wins = int(leblanc.get("wins", 0))
+    leblanc_losses = int(leblanc.get("losses", 0))
+
+    stats["leblancGames"] = leblanc_games
+    stats["leblancWins"] = leblanc_wins
+    stats["leblancLosses"] = leblanc_losses
+    stats["leblancWinrate"] = (leblanc_wins / leblanc_games) if leblanc_games else None
+    stats["gamesOffLeblanc"] = max(0, int(stats.get("games", 0)) - leblanc_games)
+
     champ_rows = []
     for cid, d in champs.items():
         g = d["games"]
