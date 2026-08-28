@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-08-28T03:40:30.673573-04:00",
-    "display": "Last Updated: 3:40AM on 8/28"
+    "iso": "2026-08-28T15:13:05.589875-04:00",
+    "display": "Last Updated: 3:13PM on 8/28"
   },
   "split": {
     "queue": 420,
@@ -56,6 +56,72 @@
         "games": 0,
         "wins": 0,
         "losses": 0,
+        "champions": {},
+        "mostPlayedChampionId": null,
+        "highestWinrateChampionId": null,
+        "lowestWinrateChampionId": null,
+        "highestWinrateChampionWR": null,
+        "lowestWinrateChampionWR": null,
+        "avgLpGainPerWin": null,
+        "avgLpLossPerLoss": null,
+        "lpDelta": {
+          "wins": [],
+          "losses": []
+        }
+      }
+    },
+    "Jeff Li: The Journey to Emerald": {
+      "riotId": "Buy Again#NA1",
+      "puuid": "zaMr0i-kWXk8MeNG6hsJ9a1YrM-M64VfZtEFPbT5qtJ_2rVOZOHt8UTc_Ya8KSKDVw4twCyiKabkcA",
+      "current": {
+        "tier": "DIAMOND",
+        "division": "II",
+        "lp": 22,
+        "wins": 222,
+        "losses": 208,
+        "games": 430,
+        "winrate": 0.5162790697674419
+      },
+      "leagueRecord": {
+        "wins": 222,
+        "losses": 208,
+        "games": 430,
+        "winrate": 0.5162790697674419
+      },
+      "peak": {
+        "tier": "DIAMOND",
+        "division": "II",
+        "lp": 22,
+        "ts": 1787944385
+      },
+      "lpHistory": [
+        {
+          "ts": 1787944385,
+          "tier": "DIAMOND",
+          "division": "II",
+          "lp": 22
+        }
+      ],
+      "matchesSeen": [],
+      "pendingMatchIds": [],
+      "backfill": {
+        "nextStart": 0,
+        "done": true
+      },
+      "stats": {
+        "splitMatchIdsFound": null,
+        "splitMatchesProcessed": 0,
+        "splitBackfillRemaining": null,
+        "totalPlaytimeSeconds": 0,
+        "totalPlaytimeHMS": "0:00:00",
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "leblancGames": 0,
+        "leblancWins": 0,
+        "leblancLosses": 0,
+        "leblancWinrate": null,
+        "gamesOffLeblanc": 0,
         "champions": {},
         "mostPlayedChampionId": null,
         "highestWinrateChampionId": null,
