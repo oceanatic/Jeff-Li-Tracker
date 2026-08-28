@@ -1,0 +1,58 @@
+version: 2.1
+
+parameters:
+  run_tracker:
+    type: boolean
+    default: false
+
+jobs:
+  update_tracker:
+    docker:
+      - image: cimg/python:3.12
+
+    resource_class: small
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "REPLACE_WITH_YOUR_SSH_FINGERPRINT"
+
+      - run:
+          name: Install Python dependencies
+          command: |
+            python -m pip install --upgrade pip
+            python -m pip install requests
+
+      - run:
+          name: Run League tracker
+          command: |
+            python update.py
+
+      - run:
+          name: Commit updated data
+          command: |
+            git config user.name "CircleCI Tracker"
+            git config user.email "circleci-tracker@users.noreply.github.com"
+
+            # Make sure origin uses SSH so the write deploy key is used
+            ORIGIN_URL="$(git remote get-url origin)"
+            REPO_PATH="$(echo "$ORIGIN_URL" | sed -E 's#https://github.com/##; s#git@github.com:##')"
+            git remote set-url origin "git@github.com:${REPO_PATH}"
+
+            git add docs/data.json
+
+            if git diff --cached --quiet; then
+              echo "No changes to commit."
+              exit 0
+            fi
+
+            git commit -m "Update League tracker data"
+            git push origin HEAD:main
+
+workflows:
+  league_tracker:
+    when: << pipeline.parameters.run_tracker >>
+    jobs:
+      - update_tracker
