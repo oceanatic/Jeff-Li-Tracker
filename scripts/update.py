@@ -10,8 +10,7 @@ RIOT_API_KEY = os.environ["RIOT_API_KEY"].strip()
 # - platform routing for league-v4/summoner-v4: na1
 # - regional routing for account-v1/match-v5: americas
 PLAYERS = [
-  {"label":"mentallyunhinged","gameName":"mentallyunhinged","tagLine":"0626","platform":"na1","regional":"americas"},
-  {"label":"mikebeastem","gameName":"mikebeastem","tagLine":"MRD","platform":"na1","regional":"americas"},
+  {"label":"diamond man","gameName":"Buy Again","tagLine":"#NA1","platform":"na1","regional":"americas"},
 ]
 
 QUEUE_RANKED_SOLO = 420
@@ -19,8 +18,8 @@ QUEUE_TYPE_SOLO = "RANKED_SOLO_5x5"
 
 OUT_PATH = "docs/data.json"
 
-# Split tracking start: January 7, 2026 00:00 UTC
-SPLIT_START_UNIX = 1767875204
+# Split tracking start: August 28, 2026 07:00 UTC
+SPLIT_START_UNIX = 1787901411
 
 # Match-v5 paging + rate safety
 MATCH_PAGE_SIZE = 100                 # match-v5 max per request
