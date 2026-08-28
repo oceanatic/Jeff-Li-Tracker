@@ -17,7 +17,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "REPLACE_WITH_YOUR_SSH_FINGERPRINT"
+            - "SHA256:U+4664l9ERGhQnwvwD1h/DKKrM8MsFglismUr8Z7j7M"
 
       - run:
           name: Install Python dependencies
