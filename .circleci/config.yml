@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Run League tracker
           command: |
-            python update.py
+            python scripts/update.py
 
       - run:
           name: Commit updated data
