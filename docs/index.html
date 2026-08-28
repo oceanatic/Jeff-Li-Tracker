@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chucky vs Michael: Race to Emerald</title>
+  <title>Progress to Master</title>
   <style>
     :root{
       /* Dark “broadcast” palette (not neon-glass) */
@@ -319,6 +319,106 @@
       line-height: 1.15;
     }
 
+
+    .extraStatsButton{
+      width:100%;
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 15px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+      font: inherit;
+      text-align:left;
+      transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    }
+
+    .extraStatsButton:hover{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.22);
+      transform: translateY(-1px);
+    }
+
+    .extraStatsButton .extraLabel{
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing:0.35px;
+      text-transform: uppercase;
+    }
+
+    .extraStatsButton .extraArrow{
+      color: var(--accent2);
+      font-size: 20px;
+      font-weight: 900;
+      line-height:1;
+    }
+
+    .modalBackdrop{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(6px);
+    }
+
+    .modalBackdrop.open{
+      display:flex;
+    }
+
+    .modalPanel{
+      width:min(720px, 100%);
+      max-height:min(80vh, 760px);
+      overflow:auto;
+      border:1px solid var(--line2);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(11,18,36,0.99), rgba(10,18,38,0.98));
+      box-shadow: var(--shadow);
+    }
+
+    .modalHeader{
+      padding:18px 18px 14px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+    }
+
+    .modalTitle{
+      font-size:20px;
+      font-weight:950;
+      letter-spacing:0.4px;
+      text-transform:uppercase;
+    }
+
+    .modalClose{
+      width:38px;
+      height:38px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.05);
+      color:var(--text);
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+    }
+
+    .modalBody{
+      padding:22px 18px 24px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
     .lead{
       margin-top: 18px;
       padding: 18px 18px;
@@ -347,6 +447,18 @@
 
     <div class="grid" id="cards"></div>
     <div class="lead" id="lead">Calculating LP change…</div>
+  </div>
+
+  <div class="modalBackdrop" id="leblancModal" aria-hidden="true">
+    <div class="modalPanel" role="dialog" aria-modal="true" aria-labelledby="leblancModalTitle">
+      <div class="modalHeader">
+        <div class="modalTitle" id="leblancModalTitle">Extra LeBlanc Stats</div>
+        <button class="modalClose" id="leblancModalClose" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modalBody" id="leblancModalBody">
+        More LeBlanc stats will go here.
+      </div>
+    </div>
   </div>
 
 <script>
@@ -524,6 +636,38 @@
     return `${cur.tier} ${cur.division} — ${cur.lp} LP`;
   }
 
+  function openLeblancModal(playerName){
+    const modal = document.getElementById("leblancModal");
+    const title = document.getElementById("leblancModalTitle");
+
+    title.textContent = playerName
+      ? `${playerName} — Extra LeBlanc Stats`
+      : "Extra LeBlanc Stats";
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLeblancModal(){
+    const modal = document.getElementById("leblancModal");
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  document.getElementById("leblancModalClose").addEventListener("click", closeLeblancModal);
+
+  document.getElementById("leblancModal").addEventListener("click", (event) => {
+    if (event.target.id === "leblancModal"){
+      closeLeblancModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape"){
+      closeLeblancModal();
+    }
+  });
+
   async function load(){
     await loadChampionMap();
 
@@ -574,24 +718,15 @@
         `;
       }).join("");
 
-      const most = champStats(s, s.mostPlayedChampionId);
-      const hi = champStats(s, s.highestWinrateChampionId);
-      const lo = champStats(s, s.lowestWinrateChampionId);
-
-      const mostText =
-        (s.mostPlayedChampionId != null && most)
-          ? `${champName(s.mostPlayedChampionId)} (${most.g} games • ${most.wr != null ? (most.wr*100).toFixed(1) : "n/a"}% winrate)`
-          : "n/a";
-
-      const hiText =
-        (s.highestWinrateChampionId != null && hi)
-          ? `${champName(s.highestWinrateChampionId)} • ${hi.wr != null ? (hi.wr*100).toFixed(1) : "n/a"}% (W ${hi.w} / L ${hi.l})`
-          : "n/a";
-
-      const loText =
-        (s.lowestWinrateChampionId != null && lo)
-          ? `${champName(s.lowestWinrateChampionId)} • ${lo.wr != null ? (lo.wr*100).toFixed(1) : "n/a"}% (W ${lo.w} / L ${lo.l})`
-          : "n/a";
+      const leblancGames = Number.isFinite(s.leblancGames) ? s.leblancGames : 0;
+      const gamesOffLeblanc = Number.isFinite(s.gamesOffLeblanc)
+        ? s.gamesOffLeblanc
+        : Math.max(0, (s.games ?? 0) - leblancGames);
+      const leblancWins = Number.isFinite(s.leblancWins) ? s.leblancWins : 0;
+      const leblancLosses = Number.isFinite(s.leblancLosses) ? s.leblancLosses : 0;
+      const leblancWinrateText = leblancGames > 0
+        ? `${((leblancWins / leblancGames) * 100).toFixed(1)}% (W ${leblancWins} / L ${leblancLosses})`
+        : "n/a";
 
       const board = document.createElement("div");
       board.className = "board";
@@ -626,20 +761,30 @@
               <div class="v">${s.totalPlaytimeHMS || "0:00:00"}</div>
             </div>
             <div class="tile">
-              <div class="k">Most Played Champ</div>
-              <div class="v">${mostText}</div>
+              <div class="k">Winrate on LeBlanc</div>
+              <div class="v">${leblancWinrateText}</div>
             </div>
             <div class="tile">
-              <div class="k">Highest WR Champ (min 5 games)</div>
-              <div class="v">${hiText}</div>
+              <div class="k">Games on LeBlanc</div>
+              <div class="v">${leblancGames}</div>
             </div>
             <div class="tile">
-              <div class="k">Lowest WR Champ (min 5 games)</div>
-              <div class="v">${loText}</div>
+              <div class="k">Games Off LeBlanc</div>
+              <div class="v">${gamesOffLeblanc}</div>
             </div>
           </div>
+
+          <button class="extraStatsButton" type="button">
+            <span class="extraLabel">Extra LeBlanc Stats</span>
+            <span class="extraArrow">›</span>
+          </button>
         </div>
       `;
+
+      board.querySelector(".extraStatsButton").addEventListener("click", () => {
+        openLeblancModal(displayName(key));
+      });
+
       cards.appendChild(board);
     }
 
