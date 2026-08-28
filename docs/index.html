@@ -321,29 +321,23 @@
 
 
     .extraStatsButton{
-    width:100%;
-    margin-top:12px;
-    border:1px solid rgba(255,255,255,0.14);
-    background:rgba(255,255,255,0.055);
-    color:var(--text);
-    border-radius:14px;
-    padding:15px 16px;
-  
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  
-    gap:12px;
-    cursor:pointer;
-    font:inherit;
-    text-align:center;
-  
-    position:relative;
-  
-    transition:background 140ms ease,
-               border-color 140ms ease,
-               transform 140ms ease;
-  }
+      width:100%;
+      margin-top:12px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.055);
+      color:var(--text);
+      border-radius:14px;
+      padding:15px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      cursor:pointer;
+      font:inherit;
+      text-align:center;
+      position:relative;
+      transition:background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    }
   
   .extraStatsButton:hover{
     background:rgba(255,255,255,0.08);
@@ -358,15 +352,14 @@
     text-transform:uppercase;
   }
   
-  .extraStatsButton .extraArrow{
-    position:absolute;
-    right:16px;
-  
-    color:var(--accent2);
-    font-size:20px;
-    font-weight:900;
-    line-height:1;
-  }
+    .extraStatsButton .extraArrow{
+      position:absolute;
+      right:16px;
+      color:var(--accent2);
+      font-size:20px;
+      font-weight:900;
+      line-height:1;
+    }
   
   
   /* POPUP MENU */
@@ -684,10 +677,42 @@
     }
   });
 
+  const PRIMARY_PLAYER_LABEL = "Jeff Li: The Journey to Emerald";
+
+  function getPrimaryPlayerEntry(data){
+    const players = data?.players || {};
+    const activeLabels = Array.isArray(data?.activePlayerLabels)
+      ? data.activePlayerLabels
+      : [];
+
+    // First use the labels written by update.py.
+    for (const label of activeLabels){
+      if (players[label]){
+        return [label, players[label]];
+      }
+    }
+
+    // Compatibility with older data.json files.
+    if (players[PRIMARY_PLAYER_LABEL]){
+      return [PRIMARY_PLAYER_LABEL, players[PRIMARY_PLAYER_LABEL]];
+    }
+
+    // Final fallback: render one player only, never every stale record.
+    const entries = Object.entries(players);
+    return entries.length ? entries[0] : null;
+  }
+
   async function load(){
-    await loadChampionMap();
+    try{
+      await loadChampionMap();
+    }catch(error){
+      console.warn("Champion name map failed to load; continuing without it.", error);
+    }
 
     const res = await fetch("./data.json", { cache: "no-store" });
+    if (!res.ok){
+      throw new Error(`Could not load data.json (${res.status})`);
+    }
     const data = await res.json();
 
     const updatedIso = data?.updatedAt?.iso ?? data?.updatedAt;
@@ -697,21 +722,22 @@
     const cards = document.getElementById("cards");
     cards.innerHTML = "";
 
-    // Total Games: sum of league-v4 authoritative games across both players
-    let totalGamesAllPlayers = 0;
+    const primaryEntry = getPrimaryPlayerEntry(data);
 
-    for (const [key, p] of Object.entries(data.players || {})){
-      const cur = p.current;
-      const s = p.stats || {};
+    if (!primaryEntry){
+      cards.innerHTML = `<div class="board"><div class="body">Player data unavailable.</div></div>`;
+      document.getElementById("lead").textContent = "LP change unavailable";
+      return;
+    }
 
-      const winrate = s.games > 0 ? ((s.wins / s.games) * 100).toFixed(1) + "%" : "n/a";
-      const peakText = p.peak ? `${p.peak.tier} ${p.peak.division} — ${p.peak.lp} LP` : "n/a";
+    const [key, p] = primaryEntry;
+    const cur = p.current;
+    const s = p.stats || {};
 
-      // accumulate total games (authoritative ladder)
-      const total = Number.isFinite(s.games) ? s.games : 0;
-      totalGamesAllPlayers += total;
+    const winrate = s.games > 0 ? ((s.wins / s.games) * 100).toFixed(1) + "%" : "n/a";
+    const peakText = p.peak ? `${p.peak.tier} ${p.peak.division} — ${p.peak.lp} LP` : "n/a";
 
-      const barsHtml = BARS.map((bar) => {
+    const barsHtml = BARS.map((bar) => {
         const prog = computeBarProgress(cur, bar);
         const pctLabel = `${Math.round(prog.pct * 100)}%`;
 
@@ -734,19 +760,19 @@
         `;
       }).join("");
 
-      const leblancGames = Number.isFinite(s.leblancGames) ? s.leblancGames : 0;
-      const gamesOffLeblanc = Number.isFinite(s.gamesOffLeblanc)
+    const leblancGames = Number.isFinite(s.leblancGames) ? s.leblancGames : 0;
+    const gamesOffLeblanc = Number.isFinite(s.gamesOffLeblanc)
         ? s.gamesOffLeblanc
         : Math.max(0, (s.games ?? 0) - leblancGames);
-      const leblancWins = Number.isFinite(s.leblancWins) ? s.leblancWins : 0;
-      const leblancLosses = Number.isFinite(s.leblancLosses) ? s.leblancLosses : 0;
-      const leblancWinrateText = leblancGames > 0
+    const leblancWins = Number.isFinite(s.leblancWins) ? s.leblancWins : 0;
+    const leblancLosses = Number.isFinite(s.leblancLosses) ? s.leblancLosses : 0;
+    const leblancWinrateText = leblancGames > 0
         ? `${((leblancWins / leblancGames) * 100).toFixed(1)}% (W ${leblancWins} / L ${leblancLosses})`
         : "n/a";
 
-      const board = document.createElement("div");
-      board.className = "board";
-      board.innerHTML = `
+    const board = document.createElement("div");
+    board.className = "board";
+    board.innerHTML = `
         <div class="hdr">
           <div class="name">
             <h2 class="riot">${displayName(key)}</h2>
@@ -797,38 +823,28 @@
         </div>
       `;
 
-      board.querySelector(".extraStatsButton").addEventListener("click", () => {
+    board.querySelector(".extraStatsButton").addEventListener("click", () => {
         openLeblancModal(displayName(key));
       });
 
-      cards.appendChild(board);
-    }
+    cards.appendChild(board);
 
     // ---------------------------
     // LP change from starting rank: Diamond II 22 LP
     // ---------------------------
-    const entries = Object.entries(data.players || {});
     const leadEl = document.getElementById("lead");
-    
-    if (entries.length >= 1) {
-      const [, player] = entries[0];
-      const cur = player.current;
-    
-      if (cur) {
-        const startValue = rankValue("DIAMOND", "II", 22);
-        const currentValue = rankValue(cur.tier, cur.division, cur.lp);
-    
-        const difference = currentValue - startValue;
-    
-        if (difference > 0) {
-          leadEl.textContent = `${difference} LP UP`;
-        } else if (difference < 0) {
-          leadEl.textContent = `${Math.abs(difference)} LP DOWN`;
-        } else {
-          leadEl.textContent = `0 LP DIFFERENCE`;
-        }
+
+    if (cur) {
+      const startValue = rankValue("DIAMOND", "II", 22);
+      const currentValue = rankValue(cur.tier, cur.division, cur.lp);
+      const difference = currentValue - startValue;
+
+      if (difference > 0) {
+        leadEl.textContent = `${difference} LP UP`;
+      } else if (difference < 0) {
+        leadEl.textContent = `${Math.abs(difference)} LP DOWN`;
       } else {
-        leadEl.textContent = "LP change unavailable";
+        leadEl.textContent = `0 LP DIFFERENCE`;
       }
     } else {
       leadEl.textContent = "LP change unavailable";
@@ -843,7 +859,15 @@
     
     } // closes async function load()
     
-load();
+load().catch((error) => {
+  console.error(error);
+  document.getElementById("cards").innerHTML = `
+    <div class="board">
+      <div class="body">Unable to load tracker data.</div>
+    </div>
+  `;
+  document.getElementById("lead").textContent = "LP change unavailable";
+});
 </script>
 </body>
 </html>
