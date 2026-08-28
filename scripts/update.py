@@ -10,7 +10,7 @@ RIOT_API_KEY = os.environ["RIOT_API_KEY"].strip()
 # - platform routing for league-v4/summoner-v4: na1
 # - regional routing for account-v1/match-v5: americas
 PLAYERS = [
-  {"label":"diamond man","gameName":"Buy Again","tagLine":"#NA1","platform":"na1","regional":"americas"},
+  {"label":"diamond man","gameName":"Buy Again","tagLine":"NA1","platform":"na1","regional":"americas"},
 ]
 
 QUEUE_RANKED_SOLO = 420
