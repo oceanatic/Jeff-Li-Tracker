@@ -658,18 +658,14 @@
         const currentValue = rankValue(cur.tier, cur.division, cur.lp);
     
         const difference = currentValue - startValue;
-    
+
         if (difference > 0) {
-          leadEl.textContent = `+${difference} LP from Diamond II 22 LP`;
+          leadEl.textContent = `${difference} LP UP`;
         } else if (difference < 0) {
-          leadEl.textContent = `${difference} LP from Diamond II 22 LP`;
+          leadEl.textContent = `${Math.abs(difference)} LP DOWN`;
         } else {
-          leadEl.textContent = `0 LP from Diamond II 22 LP`;
+          leadEl.textContent = `0 LP`;
         }
-      } else {
-        leadEl.textContent = "LP change unavailable";
-      }
-    }
 
     // Update "(x minutes ago)" every 10s without refetching
     setInterval(() => {
