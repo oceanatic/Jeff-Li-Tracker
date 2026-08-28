@@ -346,7 +346,7 @@
     </div>
 
     <div class="grid" id="cards"></div>
-    <div class="lead" id="lead">Calculating lead…</div>
+    <div class="lead" id="lead">Calculating LP change…</div>
   </div>
 
 <script>
@@ -644,30 +644,31 @@
     }
 
     // ---------------------------
-    // Lead calculation (LP-equivalent)
+    // LP change from starting rank: Diamond II 22 LP
     // ---------------------------
     const entries = Object.entries(data.players || {});
     const leadEl = document.getElementById("lead");
-
-    if (entries.length >= 2){
-      const [aKey, aP] = entries[0];
-      const [bKey, bP] = entries[1];
-
-      const aCur = aP.current;
-      const bCur = bP.current;
-
-      const aV = aCur ? rankValue(aCur.tier, aCur.division, aCur.lp) : -Infinity;
-      const bV = bCur ? rankValue(bCur.tier, bCur.division, bCur.lp) : -Infinity;
-
-      if (aV === bV){
-        leadEl.textContent = "Both players are tied.";
-      } else if (aV > bV){
-        leadEl.textContent = `${displayName(aKey)} is currently in the lead by ${aV - bV} LP`;
+    
+    if (entries.length >= 1) {
+      const [, player] = entries[0];
+      const cur = player.current;
+    
+      if (cur) {
+        const startValue = rankValue("DIAMOND", "II", 22);
+        const currentValue = rankValue(cur.tier, cur.division, cur.lp);
+    
+        const difference = currentValue - startValue;
+    
+        if (difference > 0) {
+          leadEl.textContent = `+${difference} LP from Diamond II 22 LP`;
+        } else if (difference < 0) {
+          leadEl.textContent = `${difference} LP from Diamond II 22 LP`;
+        } else {
+          leadEl.textContent = `±0 LP from Diamond II 22 LP`;
+        }
       } else {
-        leadEl.textContent = `${displayName(bKey)} is currently in the lead by ${bV - aV} LP`;
+        leadEl.textContent = "LP change unavailable";
       }
-    } else {
-      leadEl.textContent = "";
     }
 
     // Update "(x minutes ago)" every 10s without refetching
