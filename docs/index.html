@@ -652,7 +652,7 @@
     if (entries.length >= 1) {
       const [, player] = entries[0];
       const cur = player.current;
-    
+    }
       if (cur) {
         const startValue = rankValue("DIAMOND", "II", 22);
         const currentValue = rankValue(cur.tier, cur.division, cur.lp);
@@ -665,7 +665,7 @@
           leadEl.textContent = `${Math.abs(difference)} LP DOWN`;
         } else {
           leadEl.textContent = `0 LP`;
-        } }
+        }
 
     // Update "(x minutes ago)" every 10s without refetching
     setInterval(() => {
