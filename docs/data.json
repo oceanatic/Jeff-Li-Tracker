@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-08-28T20:20:35.824579-04:00",
-    "display": "Last Updated: 8:20PM on 8/28"
+    "iso": "2026-08-28T20:24:49.835493-04:00",
+    "display": "Last Updated: 8:24PM on 8/28"
   },
   "split": {
     "queue": 420,
@@ -228,8 +228,8 @@
         "leblancAverageKills": 5.5,
         "leblancAverageDeaths": 4.666666666666667,
         "leblancAverageAssists": 6.5,
-        "leblancAverageGoldLead15": 338.5,
-        "leblancAverageCsPerMin": 4.720146446505716,
+        "leblancAverageGoldLead15": 193.0,
+        "leblancAverageCsPerMin": 7.548578828356441,
         "leblancFateCounts": {
           "Godlike": 0,
           "Solid": 1,
