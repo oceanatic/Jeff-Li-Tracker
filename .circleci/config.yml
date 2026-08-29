@@ -57,7 +57,7 @@ jobs:
       - run:
           name: Validate generated LeBlanc stats
           command: |
-            python - <<'PY'
+            python - \<<'PY'
             import json
 
             with open("docs/data.json", "r", encoding="utf-8") as f:
