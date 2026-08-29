@@ -35,9 +35,92 @@ jobs:
             python -m pip install requests
 
       - run:
+          name: Verify advanced tracker file
+          command: |
+            echo "Commit being executed:"
+            git rev-parse HEAD
+            echo
+            echo "Updater marker:"
+            head -n 5 scripts/update.py
+            echo
+            grep -n 'TRACKER_SCHEMA_VERSION = "leblanc-advanced-v4"' scripts/update.py
+            grep -n 'leblancAverageKda' scripts/update.py | head
+            grep -n 'get_deeplol_stats' scripts/update.py | head
+            grep -n 'get_match_timeline' scripts/update.py | head
+            echo "Advanced updater V4 verified."
+
+      - run:
           name: Run League tracker
           command: |
             python scripts/update.py
+
+      - run:
+          name: Validate generated LeBlanc stats
+          command: |
+            python - <<'PY'
+            import json
+
+            with open("docs/data.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            expected_version = "leblanc-advanced-v4"
+            actual_version = data.get("trackerSchemaVersion")
+            print("trackerSchemaVersion:", actual_version)
+            if actual_version != expected_version:
+                raise SystemExit(
+                    f"WRONG UPDATER: expected {expected_version!r}, got {actual_version!r}"
+                )
+
+            players = data.get("players", {})
+            if not players:
+                raise SystemExit("No player data was generated.")
+
+            label, player = next(iter(players.items()))
+            stats = player.get("stats", {})
+
+            required_keys = [
+                "advancedTrackerVersion",
+                "leblancMatchStats",
+                "leblancAverageAiScore",
+                "leblancAverageKda",
+                "leblancAverageKills",
+                "leblancAverageDeaths",
+                "leblancAverageAssists",
+                "leblancAverageGoldLead15",
+                "leblancAverageCsPerMin",
+                "leblancFateCounts",
+                "leblancLpAttributions",
+                "leblancLpNet",
+                "leblancLpTrackedGames",
+            ]
+
+            missing = [key for key in required_keys if key not in stats]
+            print("player:", label)
+            print("missing advanced keys:", missing)
+            if missing:
+                raise SystemExit("Advanced fields were not written to data.json.")
+
+            records = stats.get("leblancMatchStats", {})
+            lb_games = stats.get("leblancGames", 0) or 0
+            print("LeBlanc games:", lb_games)
+            print("advanced records:", len(records))
+            print("avg KDA:", stats.get("leblancAverageKda"))
+            print("avg CS/min:", stats.get("leblancAverageCsPerMin"))
+            print("avg AI score:", stats.get("leblancAverageAiScore"))
+            print("avg gold lead @15:", stats.get("leblancAverageGoldLead15"))
+            print("LP net:", stats.get("leblancLpNet"))
+            print("LP tracked games:", stats.get("leblancLpTrackedGames"))
+            print("fates:", stats.get("leblancFateCounts"))
+
+            # KDA and CS/min come directly from Riot match details and should be
+            # recoverable for already-seen LeBlanc games. Fail loudly if they aren't.
+            if lb_games > 0 and len(records) == 0:
+                raise SystemExit("LeBlanc games exist but no advanced match records were generated.")
+            if len(records) > 0 and stats.get("leblancAverageKda") is None:
+                raise SystemExit("Advanced records exist but average KDA is null.")
+            if len(records) > 0 and stats.get("leblancAverageCsPerMin") is None:
+                raise SystemExit("Advanced records exist but average CS/min is null.")
+            PY
 
       - run:
           name: Commit updated data
@@ -62,6 +145,9 @@ jobs:
             echo "Remote changed during this job. Re-running tracker from newest main..."
             git fetch origin main
             git reset --hard origin/main
+
+            # Re-verify after reset so an old remote updater cannot silently run.
+            grep -q 'TRACKER_SCHEMA_VERSION = "leblanc-advanced-v4"' scripts/update.py
 
             python scripts/update.py
             git add docs/data.json
