@@ -809,12 +809,7 @@
     const wins = Number.isFinite(stats?.leblancWins) ? stats.leblancWins : 0;
     const losses = Number.isFinite(stats?.leblancLosses) ? stats.leblancLosses : 0;
     const wr = games > 0 ? (wins / games) * 100 : null;
-    const wlRatio = losses > 0 ? wins / losses : (wins > 0 ? Infinity : null);
-    const wlText = wlRatio === Infinity
-      ? `∞ (${wins}W / ${losses}L)`
-      : Number.isFinite(wlRatio)
-        ? `${wlRatio.toFixed(2)} (${wins}W / ${losses}L)`
-        : `0W / 0L`;
+    const wlText = `${wins}W / ${losses}L`;
 
     const avgKda = Number.isFinite(stats?.leblancAverageKda)
       ? stats.leblancAverageKda.toFixed(2)
@@ -844,7 +839,7 @@
     body.innerHTML = `
       <div class="extraStatsGrid">
         <div class="extraStatTile"><div class="k">Games</div><div class="v">${games}</div></div>
-        <div class="extraStatTile"><div class="k">Win / Loss</div><div class="v">${wlText}</div></div>
+        <div class="extraStatTile"><div class="k">Win / Loss Ratio</div><div class="v">${wlText}</div></div>
         <div class="extraStatTile"><div class="k">Winrate</div><div class="v">${Number.isFinite(wr) ? wr.toFixed(1) + "%" : "n/a"}</div></div>
         <div class="extraStatTile"><div class="k">Average DeepLoL AI Score</div><div class="v">${aiText}</div></div>
         <div class="extraStatTile"><div class="k">Average KDA</div><div class="v">${avgKda} <span>(${avgLine})</span></div></div>
