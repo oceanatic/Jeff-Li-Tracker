@@ -843,13 +843,13 @@
 
     body.innerHTML = `
       <div class="extraStatsGrid">
-        <div class="extraStatTile"><div class="k">LeBlanc Games</div><div class="v">${games}</div></div>
-        <div class="extraStatTile"><div class="k">LeBlanc Win / Loss Ratio</div><div class="v">${wlText}</div></div>
-        <div class="extraStatTile"><div class="k">LeBlanc Winrate</div><div class="v">${Number.isFinite(wr) ? wr.toFixed(1) + "%" : "n/a"}</div></div>
+        <div class="extraStatTile"><div class="k">Games</div><div class="v">${games}</div></div>
+        <div class="extraStatTile"><div class="k">Win / Loss Ratio</div><div class="v">${wlText}</div></div>
+        <div class="extraStatTile"><div class="k">Winrate</div><div class="v">${Number.isFinite(wr) ? wr.toFixed(1) + "%" : "n/a"}</div></div>
         <div class="extraStatTile"><div class="k">Average DeepLoL AI Score</div><div class="v">${aiText}</div></div>
-        <div class="extraStatTile"><div class="k">Average KDA</div><div class="v">${avgKda}<div style="font-size:11px;color:var(--muted);margin-top:4px;font-weight:700">${avgLine}</div></div></div>
+        <div class="extraStatTile"><div class="k">Average KDA</div><div class="v">${avgKda} <span>(${avgLine})</span></div></div>
         <div class="extraStatTile"><div class="k">Average Gold Lead @ 15</div><div class="v">${gold15Text}</div></div>
-        <div class="extraStatTile"><div class="k">LeBlanc LP Gain / Deficit</div><div class="v">${lpText}</div></div>
+        <div class="extraStatTile"><div class="k">LeBlanc Change in LP</div><div class="v">${lpText}</div></div>
         <div class="extraStatTile"><div class="k">Average CS / Min</div><div class="v">${csText}</div></div>
       </div>
       <div class="modalNote">
