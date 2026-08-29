@@ -446,7 +446,12 @@ def write_basic_match_meta(st, mid, info, me):
     meta["participantId"] = me.get("participantId")
     return meta
 
+def is_mid_record(record):
+    team_pos = str(record.get("teamPosition") or "").upper()
+    individual_pos = str(record.get("individualPosition") or "").upper()
 
+    return team_pos == "MIDDLE" or individual_pos == "MIDDLE"
+    
 def build_or_update_leblanc_record(st, stats, p, mid, match, regional, fetch_external=True):
     info = match.get("info", {})
     participants = info.get("participants", [])
@@ -480,6 +485,7 @@ def build_or_update_leblanc_record(st, stats, p, mid, match, regional, fetch_ext
         "gameEndTs": meta.get("gameEndTs"),
         "participantId": me.get("participantId"),
         "teamPosition": me.get("teamPosition"),
+        "individualPosition": me.get("individualPosition"),
     })
 
     opponent = find_lane_opponent(participants, me)
@@ -544,12 +550,14 @@ def derive_leblanc_advanced_stats(stats):
 
     stats["leblancAverageGoldLead15"] = average([
         safe_float(r.get("goldLead15")) for r in records
-        if safe_float(r.get("goldLead15")) is not None
+        if is_mid_record(r)
+        and safe_float(r.get("goldLead15")) is not None
     ])
-
+    
     stats["leblancAverageCsPerMin"] = average([
         safe_float(r.get("csPerMin")) for r in records
-        if safe_float(r.get("csPerMin")) is not None
+        if is_mid_record(r)
+        and safe_float(r.get("csPerMin")) is not None
     ])
 
     fate_counts = {name: 0 for name in FATE_NAMES}
