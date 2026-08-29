@@ -1,0 +1,92 @@
+{
+  "updatedAt": {
+    "iso": "2026-08-28T20:09:56.355985-04:00",
+    "display": "Last Updated: 8:09PM on 8/28"
+  },
+  "split": {
+    "queue": 420,
+    "queueType": "RANKED_SOLO_5x5",
+    "startUnix": 1787901411
+  },
+  "players": {
+    "Jeff Li: The Journey to Emerald": {
+      "riotId": "Buy Again#NA1",
+      "puuid": "zaMr0i-kWXk8MeNG6hsJ9a1YrM-M64VfZtEFPbT5qtJ_2rVOZOHt8UTc_Ya8KSKDVw4twCyiKabkcA",
+      "current": {
+        "tier": "DIAMOND",
+        "division": "III",
+        "lp": 57,
+        "wins": 223,
+        "losses": 212,
+        "games": 435,
+        "winrate": 0.5126436781609195
+      },
+      "leagueRecord": {
+        "wins": 223,
+        "losses": 212,
+        "games": 435,
+        "winrate": 0.5126436781609195
+      },
+      "peak": {
+        "tier": "DIAMOND",
+        "division": "III",
+        "lp": 57,
+        "ts": 1787962194
+      },
+      "lpHistory": [
+        {
+          "ts": 1787962194,
+          "tier": "DIAMOND",
+          "division": "III",
+          "lp": 57
+        }
+      ],
+      "matchesSeen": [
+        "NA1_5630307996",
+        "NA1_5630323208",
+        "NA1_5630332714",
+        "NA1_5630362202",
+        "NA1_5630381224"
+      ],
+      "pendingMatchIds": [],
+      "backfill": {
+        "nextStart": 100,
+        "done": true
+      },
+      "stats": {
+        "splitMatchIdsFound": null,
+        "splitMatchesProcessed": 5,
+        "splitBackfillRemaining": null,
+        "totalPlaytimeSeconds": 7424,
+        "totalPlaytimeHMS": "2:03:44",
+        "games": 5,
+        "wins": 1,
+        "losses": 4,
+        "leblancGames": 5,
+        "leblancWins": 1,
+        "leblancLosses": 4,
+        "leblancWinrate": 0.2,
+        "gamesOffLeblanc": 0,
+        "champions": {
+          "7": {
+            "games": 5,
+            "wins": 1,
+            "losses": 4,
+            "playtimeSeconds": 7424
+          }
+        },
+        "mostPlayedChampionId": "7",
+        "highestWinrateChampionId": "7",
+        "lowestWinrateChampionId": "7",
+        "highestWinrateChampionWR": 0.2,
+        "lowestWinrateChampionWR": 0.2,
+        "avgLpGainPerWin": null,
+        "avgLpLossPerLoss": null,
+        "lpDelta": {
+          "wins": [],
+          "losses": []
+        }
+      }
+    }
+  }
+}
