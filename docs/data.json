@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-08-28T20:10:41.511446-04:00",
-    "display": "Last Updated: 8:10PM on 8/28"
+    "iso": "2026-08-28T20:17:20.299519-04:00",
+    "display": "Last Updated: 8:17PM on 8/28"
   },
   "split": {
     "queue": 420,
@@ -15,17 +15,17 @@
       "current": {
         "tier": "DIAMOND",
         "division": "III",
-        "lp": 57,
+        "lp": 36,
         "wins": 223,
-        "losses": 212,
-        "games": 435,
-        "winrate": 0.5126436781609195
+        "losses": 213,
+        "games": 436,
+        "winrate": 0.5114678899082569
       },
       "leagueRecord": {
         "wins": 223,
-        "losses": 212,
-        "games": 435,
-        "winrate": 0.5126436781609195
+        "losses": 213,
+        "games": 436,
+        "winrate": 0.5114678899082569
       },
       "peak": {
         "tier": "DIAMOND",
@@ -39,6 +39,12 @@
           "tier": "DIAMOND",
           "division": "III",
           "lp": 57
+        },
+        {
+          "ts": 1787962632,
+          "tier": "DIAMOND",
+          "division": "III",
+          "lp": 36
         }
       ],
       "matchesSeen": [
@@ -46,7 +52,8 @@
         "NA1_5630323208",
         "NA1_5630332714",
         "NA1_5630362202",
-        "NA1_5630381224"
+        "NA1_5630381224",
+        "NA1_5630392540"
       ],
       "pendingMatchIds": [],
       "backfill": {
@@ -55,38 +62,245 @@
       },
       "stats": {
         "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 5,
+        "splitMatchesProcessed": 6,
         "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 7424,
-        "totalPlaytimeHMS": "2:03:44",
-        "games": 5,
+        "totalPlaytimeSeconds": 9521,
+        "totalPlaytimeHMS": "2:38:41",
+        "games": 6,
         "wins": 1,
-        "losses": 4,
-        "leblancGames": 5,
+        "losses": 5,
+        "leblancGames": 6,
         "leblancWins": 1,
-        "leblancLosses": 4,
-        "leblancWinrate": 0.2,
+        "leblancLosses": 5,
+        "leblancWinrate": 0.16666666666666666,
         "gamesOffLeblanc": 0,
         "champions": {
           "7": {
-            "games": 5,
+            "games": 6,
             "wins": 1,
-            "losses": 4,
-            "playtimeSeconds": 7424
+            "losses": 5,
+            "playtimeSeconds": 9521
           }
         },
         "mostPlayedChampionId": "7",
         "highestWinrateChampionId": "7",
         "lowestWinrateChampionId": "7",
-        "highestWinrateChampionWR": 0.2,
-        "lowestWinrateChampionWR": 0.2,
+        "highestWinrateChampionWR": 0.16666666666666666,
+        "lowestWinrateChampionWR": 0.16666666666666666,
         "avgLpGainPerWin": null,
-        "avgLpLossPerLoss": null,
+        "avgLpLossPerLoss": 21.0,
         "lpDelta": {
           "wins": [],
-          "losses": []
+          "losses": [
+            21
+          ]
+        },
+        "leblancMatchStats": {
+          "NA1_5630392540": {
+            "matchId": "NA1_5630392540",
+            "win": false,
+            "kills": 6,
+            "deaths": 10,
+            "assists": 11,
+            "kda": 1.7,
+            "cs": 64,
+            "csPerMin": 1.831187410586552,
+            "durationSeconds": 2097,
+            "gameEndTs": 1787962287,
+            "participantId": 10,
+            "teamPosition": "UTILITY",
+            "opponentParticipantId": 5,
+            "opponentChampionId": "412",
+            "aiScore": 42.07,
+            "fate": "Messy",
+            "teamLuckValue": 48.3,
+            "teammateAverageAiScore": 45.57,
+            "goldLead15": 138
+          },
+          "NA1_5630307996": {
+            "matchId": "NA1_5630307996",
+            "win": false,
+            "kills": 3,
+            "deaths": 5,
+            "assists": 5,
+            "kda": 1.6,
+            "cs": 42,
+            "csPerMin": 1.5642458100558658,
+            "durationSeconds": 1611,
+            "gameEndTs": 1787952832,
+            "participantId": 10,
+            "teamPosition": "UTILITY",
+            "opponentParticipantId": 5,
+            "opponentChampionId": "147",
+            "aiScore": 46.08,
+            "fate": "Messy",
+            "teamLuckValue": 43.2,
+            "teammateAverageAiScore": 39.71,
+            "goldLead15": -626
+          },
+          "NA1_5630323208": {
+            "matchId": "NA1_5630323208",
+            "win": false,
+            "kills": 5,
+            "deaths": 3,
+            "assists": 4,
+            "kda": 3.0,
+            "cs": 165,
+            "csPerMin": 7.333333333333333,
+            "durationSeconds": 1350,
+            "gameEndTs": 1787954508,
+            "participantId": 3,
+            "teamPosition": "MIDDLE",
+            "opponentParticipantId": 8,
+            "opponentChampionId": "75",
+            "aiScore": 53.27,
+            "fate": "Messy",
+            "teamLuckValue": 44.6,
+            "teammateAverageAiScore": 43.4625,
+            "goldLead15": -406
+          },
+          "NA1_5630332714": {
+            "matchId": "NA1_5630332714",
+            "win": false,
+            "kills": 7,
+            "deaths": 5,
+            "assists": 9,
+            "kda": 3.2,
+            "cs": 222,
+            "csPerMin": 7.286652078774617,
+            "durationSeconds": 1828,
+            "gameEndTs": 1787956556,
+            "participantId": 8,
+            "teamPosition": "MIDDLE",
+            "opponentParticipantId": 3,
+            "opponentChampionId": "81",
+            "aiScore": 51.4,
+            "fate": "Messy",
+            "teamLuckValue": 44.0,
+            "teammateAverageAiScore": 42.1275,
+            "goldLead15": 825
+          },
+          "NA1_5630362202": {
+            "matchId": "NA1_5630362202",
+            "win": false,
+            "kills": 5,
+            "deaths": 3,
+            "assists": 7,
+            "kda": 4.0,
+            "cs": 187,
+            "csPerMin": 8.025751072961373,
+            "durationSeconds": 1398,
+            "gameEndTs": 1787958264,
+            "participantId": 8,
+            "teamPosition": "MIDDLE",
+            "opponentParticipantId": 3,
+            "opponentChampionId": "90",
+            "aiScore": 61.65,
+            "fate": "Messy",
+            "teamLuckValue": 43.8,
+            "teammateAverageAiScore": 44.5775,
+            "goldLead15": 160
+          },
+          "NA1_5630381224": {
+            "matchId": "NA1_5630381224",
+            "win": true,
+            "kills": 7,
+            "deaths": 2,
+            "assists": 3,
+            "kda": 5.0,
+            "cs": 47,
+            "csPerMin": 2.2797089733225544,
+            "durationSeconds": 1237,
+            "gameEndTs": 1787959821,
+            "participantId": 10,
+            "teamPosition": "UTILITY",
+            "opponentParticipantId": 5,
+            "opponentChampionId": "35",
+            "aiScore": 66.3,
+            "fate": "Solid",
+            "teamLuckValue": 55.7,
+            "teammateAverageAiScore": 62.0075,
+            "goldLead15": 1940
+          }
+        },
+        "leblancAverageAiScore": 53.461666666666666,
+        "leblancAverageKda": 3.0833333333333335,
+        "leblancAverageKills": 5.5,
+        "leblancAverageDeaths": 4.666666666666667,
+        "leblancAverageAssists": 6.5,
+        "leblancAverageGoldLead15": 338.5,
+        "leblancAverageCsPerMin": 4.720146446505716,
+        "leblancFateCounts": {
+          "Godlike": 0,
+          "Solid": 1,
+          "Balanced": 0,
+          "Messy": 5,
+          "Doomed": 0
+        },
+        "leblancLpAttributions": {
+          "1787962194->1787962632": {
+            "delta": -21,
+            "matchIds": [
+              "NA1_5630392540"
+            ],
+            "from": {
+              "tier": "DIAMOND",
+              "division": "III",
+              "lp": 57
+            },
+            "to": {
+              "tier": "DIAMOND",
+              "division": "III",
+              "lp": 36
+            }
+          }
+        },
+        "leblancLpNet": -21,
+        "leblancLpTrackedGames": 1,
+        "advancedTrackerVersion": "leblanc-advanced-v4"
+      },
+      "matchMeta": {
+        "NA1_5630392540": {
+          "championId": "7",
+          "win": false,
+          "gameEndTs": 1787962287,
+          "participantId": 10
+        },
+        "NA1_5630307996": {
+          "championId": "7",
+          "win": false,
+          "gameEndTs": 1787952832,
+          "participantId": 10
+        },
+        "NA1_5630323208": {
+          "championId": "7",
+          "win": false,
+          "gameEndTs": 1787954508,
+          "participantId": 3
+        },
+        "NA1_5630332714": {
+          "championId": "7",
+          "win": false,
+          "gameEndTs": 1787956556,
+          "participantId": 8
+        },
+        "NA1_5630362202": {
+          "championId": "7",
+          "win": false,
+          "gameEndTs": 1787958264,
+          "participantId": 8
+        },
+        "NA1_5630381224": {
+          "championId": "7",
+          "win": true,
+          "gameEndTs": 1787959821,
+          "participantId": 10
         }
       }
     }
-  }
+  },
+  "trackerSchemaVersion": "leblanc-advanced-v4",
+  "activePlayerLabels": [
+    "Jeff Li: The Journey to Emerald"
+  ]
 }
