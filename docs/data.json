@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-08-29T00:05:38.618869-04:00",
-    "display": "Last Updated: 12:05AM on 8/29"
+    "iso": "2026-08-29T00:10:55.858864-04:00",
+    "display": "Last Updated: 12:10AM on 8/29"
   },
   "split": {
     "queue": 420,
@@ -255,7 +255,7 @@
             }
           }
         },
-        "leblancLpNet": -21,
+        "leblancLpNet": -86,
         "leblancLpTrackedGames": 1,
         "advancedTrackerVersion": "leblanc-advanced-v4"
       },
