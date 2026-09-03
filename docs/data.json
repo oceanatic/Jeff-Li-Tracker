@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-09-03T07:00:37.252280-04:00",
-    "display": "Last Updated: 7:00AM on 9/3"
+    "iso": "2026-09-03T07:05:38.435298-04:00",
+    "display": "Last Updated: 7:05AM on 9/3"
   },
   "split": {
     "queue": 420,
@@ -292,7 +292,8 @@
         "NA1_5634375610",
         "NA1_5634396853",
         "NA1_5634395638",
-        "NA1_5634413905"
+        "NA1_5634413905",
+        "NA1_5634409710"
       ],
       "pendingMatchIds": [],
       "backfill": {
@@ -301,24 +302,24 @@
       },
       "stats": {
         "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 41,
+        "splitMatchesProcessed": 42,
         "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 68714,
-        "totalPlaytimeHMS": "19:05:14",
-        "games": 41,
-        "wins": 21,
+        "totalPlaytimeSeconds": 70731,
+        "totalPlaytimeHMS": "19:38:51",
+        "games": 42,
+        "wins": 22,
         "losses": 20,
-        "leblancGames": 39,
-        "leblancWins": 21,
+        "leblancGames": 40,
+        "leblancWins": 22,
         "leblancLosses": 18,
-        "leblancWinrate": 0.5384615384615384,
+        "leblancWinrate": 0.55,
         "gamesOffLeblanc": 2,
         "champions": {
           "7": {
-            "games": 39,
-            "wins": 21,
+            "games": 40,
+            "wins": 22,
             "losses": 18,
-            "playtimeSeconds": 64631
+            "playtimeSeconds": 66648
           },
           "91": {
             "games": 1,
@@ -336,8 +337,8 @@
         "mostPlayedChampionId": "7",
         "highestWinrateChampionId": "7",
         "lowestWinrateChampionId": "7",
-        "highestWinrateChampionWR": 0.5384615384615384,
-        "lowestWinrateChampionWR": 0.5384615384615384,
+        "highestWinrateChampionWR": 0.55,
+        "lowestWinrateChampionWR": 0.55,
         "avgLpGainPerWin": 20.8,
         "avgLpLossPerLoss": 20.733333333333334,
         "lpDelta": {
@@ -1232,21 +1233,43 @@
             "teamLuckValue": 50.3,
             "teammateAverageAiScore": 55.525,
             "goldLead15": -384
+          },
+          "NA1_5634409710": {
+            "matchId": "NA1_5634409710",
+            "win": true,
+            "kills": 21,
+            "deaths": 0,
+            "assists": 4,
+            "kda": 25.0,
+            "cs": 236,
+            "csPerMin": 7.020327218641547,
+            "durationSeconds": 2017,
+            "gameEndTs": 1788433521,
+            "participantId": 8,
+            "teamPosition": "MIDDLE",
+            "individualPosition": "MIDDLE",
+            "opponentParticipantId": 3,
+            "opponentChampionId": "893",
+            "aiScore": 123.58,
+            "fate": "Doomed",
+            "teamLuckValue": 39.2,
+            "teammateAverageAiScore": 54.31,
+            "goldLead15": 2093
           }
         },
-        "leblancAverageAiScore": 63.218205128205135,
-        "leblancAverageKda": 5.518140193140193,
-        "leblancAverageKills": 7.9743589743589745,
-        "leblancAverageDeaths": 3.641025641025641,
-        "leblancAverageAssists": 5.230769230769231,
-        "leblancAverageGoldLead15": 727.5714285714286,
-        "leblancAverageCsPerMin": 7.3035204353538825,
+        "leblancAverageAiScore": 64.72725,
+        "leblancAverageKda": 6.005186688311689,
+        "leblancAverageKills": 8.3,
+        "leblancAverageDeaths": 3.55,
+        "leblancAverageAssists": 5.2,
+        "leblancAverageGoldLead15": 774.6551724137931,
+        "leblancAverageCsPerMin": 7.294080661463471,
         "leblancFateCounts": {
           "Godlike": 2,
           "Solid": 14,
           "Balanced": 7,
           "Messy": 12,
-          "Doomed": 4
+          "Doomed": 5
         },
         "leblancLpAttributions": {
           "1787962194->1787962632": {
@@ -2029,6 +2052,12 @@
           "win": true,
           "gameEndTs": 1788431091,
           "participantId": 5
+        },
+        "NA1_5634409710": {
+          "championId": "7",
+          "win": true,
+          "gameEndTs": 1788433521,
+          "participantId": 8
         }
       }
     }
