@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-09-03T07:05:38.435298-04:00",
-    "display": "Last Updated: 7:05AM on 9/3"
+    "iso": "2026-09-03T07:10:36.825698-04:00",
+    "display": "Last Updated: 7:10AM on 9/3"
   },
   "split": {
     "queue": 420,
@@ -15,23 +15,23 @@
       "current": {
         "tier": "DIAMOND",
         "division": "II",
-        "lp": 62,
-        "wins": 243,
+        "lp": 82,
+        "wins": 244,
         "losses": 227,
-        "games": 470,
-        "winrate": 0.5170212765957447
+        "games": 471,
+        "winrate": 0.5180467091295117
       },
       "leagueRecord": {
-        "wins": 243,
+        "wins": 244,
         "losses": 227,
-        "games": 470,
-        "winrate": 0.5170212765957447
+        "games": 471,
+        "winrate": 0.5180467091295117
       },
       "peak": {
         "tier": "DIAMOND",
         "division": "II",
-        "lp": 62,
-        "ts": 1788431137
+        "lp": 82,
+        "ts": 1788433836
       },
       "lpHistory": [
         {
@@ -249,6 +249,12 @@
           "tier": "DIAMOND",
           "division": "II",
           "lp": 62
+        },
+        {
+          "ts": 1788433836,
+          "tier": "DIAMOND",
+          "division": "II",
+          "lp": 82
         }
       ],
       "matchesSeen": [
@@ -1800,10 +1806,26 @@
               "division": "II",
               "lp": 62
             }
+          },
+          "1788431137->1788433836": {
+            "delta": 20,
+            "matchIds": [
+              "NA1_5634409710"
+            ],
+            "from": {
+              "tier": "DIAMOND",
+              "division": "II",
+              "lp": 62
+            },
+            "to": {
+              "tier": "DIAMOND",
+              "division": "II",
+              "lp": 82
+            }
           }
         },
-        "leblancLpNet": 87,
-        "leblancLpTrackedGames": 34,
+        "leblancLpNet": 107,
+        "leblancLpTrackedGames": 35,
         "advancedTrackerVersion": "leblanc-advanced-v4"
       },
       "matchMeta": {
