@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-09-13T08:15:38.390825-04:00",
-    "display": "Last Updated: 8:15AM on 9/13"
+    "iso": "2026-09-13T08:20:37.290262-04:00",
+    "display": "Last Updated: 8:20AM on 9/13"
   },
   "split": {
     "queue": 420,
@@ -14,18 +14,18 @@
       "puuid": "zaMr0i-kWXk8MeNG6hsJ9a1YrM-M64VfZtEFPbT5qtJ_2rVOZOHt8UTc_Ya8KSKDVw4twCyiKabkcA",
       "current": {
         "tier": "DIAMOND",
-        "division": "III",
-        "lp": 89,
-        "wins": 254,
+        "division": "II",
+        "lp": 27,
+        "wins": 255,
         "losses": 242,
-        "games": 496,
-        "winrate": 0.5120967741935484
+        "games": 497,
+        "winrate": 0.5130784708249497
       },
       "leagueRecord": {
-        "wins": 254,
+        "wins": 255,
         "losses": 242,
-        "games": 496,
-        "winrate": 0.5120967741935484
+        "games": 497,
+        "winrate": 0.5130784708249497
       },
       "peak": {
         "tier": "DIAMOND",
@@ -411,6 +411,12 @@
           "tier": "DIAMOND",
           "division": "III",
           "lp": 89
+        },
+        {
+          "ts": 1789302036,
+          "tier": "DIAMOND",
+          "division": "II",
+          "lp": 27
         }
       ],
       "matchesSeen": [
@@ -480,7 +486,8 @@
         "NA1_5641220015",
         "NA1_5641236072",
         "NA1_5641246162",
-        "NA1_5641286969"
+        "NA1_5641286969",
+        "NA1_5641294026"
       ],
       "pendingMatchIds": [],
       "backfill": {
@@ -489,18 +496,18 @@
       },
       "stats": {
         "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 67,
+        "splitMatchesProcessed": 68,
         "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 111838,
-        "totalPlaytimeHMS": "31:03:58",
-        "games": 67,
-        "wins": 32,
+        "totalPlaytimeSeconds": 113948,
+        "totalPlaytimeHMS": "31:39:08",
+        "games": 68,
+        "wins": 33,
         "losses": 35,
         "leblancGames": 58,
         "leblancWins": 30,
         "leblancLosses": 28,
         "leblancWinrate": 0.5172413793103449,
-        "gamesOffLeblanc": 9,
+        "gamesOffLeblanc": 10,
         "champions": {
           "7": {
             "games": 58,
@@ -525,6 +532,12 @@
             "wins": 0,
             "losses": 1,
             "playtimeSeconds": 1314
+          },
+          "122": {
+            "games": 1,
+            "wins": 1,
+            "losses": 0,
+            "playtimeSeconds": 2110
           }
         },
         "mostPlayedChampionId": "7",
@@ -532,7 +545,7 @@
         "lowestWinrateChampionId": "38",
         "highestWinrateChampionWR": 0.5172413793103449,
         "lowestWinrateChampionWR": 0.2857142857142857,
-        "avgLpGainPerWin": 20.533333333333335,
+        "avgLpGainPerWin": 21.096774193548388,
         "avgLpLossPerLoss": 20.482758620689655,
         "lpDelta": {
           "wins": [
@@ -565,7 +578,8 @@
             20,
             20,
             20,
-            20
+            20,
+            38
           ],
           "losses": [
             21,
@@ -3109,6 +3123,12 @@
           "win": false,
           "gameEndTs": 1789299518,
           "participantId": 9
+        },
+        "NA1_5641294026": {
+          "championId": "122",
+          "win": true,
+          "gameEndTs": 1789301934,
+          "participantId": 6
         }
       }
     }
