@@ -31,7 +31,8 @@ TRACKER_SCHEMA_VERSION = "leblanc-advanced-v4"
 OUT_PATH = "docs/data.json"
 
 # Split tracking start: August 28, 2026 07:00 UTC
-SPLIT_START_UNIX = 1787901411
+SPLIT_START_UNIX = 1791783136
+
 
 # Match-v5 paging / rate safety
 MATCH_PAGE_SIZE = 100
