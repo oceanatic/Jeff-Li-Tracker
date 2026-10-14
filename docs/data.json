@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-10-13T20:05:38.642023-04:00",
-    "display": "Last Updated: 8:05PM on 10/13"
+    "iso": "2026-10-13T20:10:40.909007-04:00",
+    "display": "Last Updated: 8:10PM on 10/13"
   },
   "split": {
     "queue": 420,
@@ -15,23 +15,23 @@
       "current": {
         "tier": "DIAMOND",
         "division": "I",
-        "lp": 56,
-        "wins": 292,
+        "lp": 74,
+        "wins": 293,
         "losses": 271,
-        "games": 563,
-        "winrate": 0.5186500888099467
+        "games": 564,
+        "winrate": 0.5195035460992907
       },
       "leagueRecord": {
-        "wins": 292,
+        "wins": 293,
         "losses": 271,
-        "games": 563,
-        "winrate": 0.5186500888099467
+        "games": 564,
+        "winrate": 0.5195035460992907
       },
       "peak": {
         "tier": "DIAMOND",
         "division": "I",
-        "lp": 56,
-        "ts": 1791934536
+        "lp": 74,
+        "ts": 1791936640
       },
       "lpHistory": [
         {
@@ -117,6 +117,12 @@
           "tier": "DIAMOND",
           "division": "I",
           "lp": 56
+        },
+        {
+          "ts": 1791936640,
+          "tier": "DIAMOND",
+          "division": "I",
+          "lp": 74
         }
       ],
       "matchesSeen": [
