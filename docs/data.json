@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-10-14T21:30:38.041351-04:00",
-    "display": "Last Updated: 9:30PM on 10/14"
+    "iso": "2026-10-14T21:35:37.764968-04:00",
+    "display": "Last Updated: 9:35PM on 10/14"
   },
   "split": {
     "queue": 420,
@@ -178,7 +178,8 @@
         "NA1_5659842554",
         "NA1_5659873433",
         "NA1_5659900996",
-        "NA1_5660386720"
+        "NA1_5660386720",
+        "NA1_5660457340"
       ],
       "pendingMatchIds": [],
       "backfill": {
@@ -323,22 +324,28 @@
           "win": true,
           "gameEndTs": 1792024778,
           "participantId": 8
+        },
+        "NA1_5660457340": {
+          "championId": "13",
+          "win": true,
+          "gameEndTs": 1792028079,
+          "participantId": 3
         }
       },
       "stats": {
         "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 23,
+        "splitMatchesProcessed": 24,
         "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 36806,
-        "totalPlaytimeHMS": "10:13:26",
-        "games": 23,
-        "wins": 14,
+        "totalPlaytimeSeconds": 36952,
+        "totalPlaytimeHMS": "10:15:52",
+        "games": 24,
+        "wins": 15,
         "losses": 9,
         "leblancGames": 2,
         "leblancWins": 1,
         "leblancLosses": 1,
         "leblancWinrate": 0.5,
-        "gamesOffLeblanc": 21,
+        "gamesOffLeblanc": 22,
         "champions": {
           "38": {
             "games": 18,
@@ -365,10 +372,10 @@
             "playtimeSeconds": 389
           },
           "13": {
-            "games": 1,
-            "wins": 1,
+            "games": 2,
+            "wins": 2,
             "losses": 0,
-            "playtimeSeconds": 2077
+            "playtimeSeconds": 2223
           }
         },
         "mostPlayedChampionId": "38",
