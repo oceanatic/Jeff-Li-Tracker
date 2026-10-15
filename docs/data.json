@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-10-15T13:20:37.638310-04:00",
-    "display": "Last Updated: 1:20PM on 10/15"
+    "iso": "2026-10-15T13:25:36.417859-04:00",
+    "display": "Last Updated: 1:25PM on 10/15"
   },
   "split": {
     "queue": 420,
@@ -222,7 +222,8 @@
         "NA1_5660553579",
         "NA1_5660573395",
         "NA1_5660771163",
-        "NA1_5660781886"
+        "NA1_5660781886",
+        "NA1_5660792163"
       ],
       "pendingMatchIds": [],
       "backfill": {
@@ -415,22 +416,28 @@
           "win": false,
           "gameEndTs": 1792083181,
           "participantId": 3
+        },
+        "NA1_5660792163": {
+          "championId": "13",
+          "win": false,
+          "gameEndTs": 1792085121,
+          "participantId": 3
         }
       },
       "stats": {
         "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 31,
+        "splitMatchesProcessed": 32,
         "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 49053,
-        "totalPlaytimeHMS": "13:37:33",
-        "games": 31,
+        "totalPlaytimeSeconds": 50379,
+        "totalPlaytimeHMS": "13:59:39",
+        "games": 32,
         "wins": 19,
-        "losses": 12,
+        "losses": 13,
         "leblancGames": 2,
         "leblancWins": 1,
         "leblancLosses": 1,
         "leblancWinrate": 0.5,
-        "gamesOffLeblanc": 29,
+        "gamesOffLeblanc": 30,
         "champions": {
           "38": {
             "games": 18,
@@ -457,17 +464,17 @@
             "playtimeSeconds": 389
           },
           "13": {
-            "games": 9,
+            "games": 10,
             "wins": 6,
-            "losses": 3,
-            "playtimeSeconds": 14324
+            "losses": 4,
+            "playtimeSeconds": 15650
           }
         },
         "mostPlayedChampionId": "38",
         "highestWinrateChampionId": "38",
-        "lowestWinrateChampionId": "38",
+        "lowestWinrateChampionId": "13",
         "highestWinrateChampionWR": 0.6666666666666666,
-        "lowestWinrateChampionWR": 0.6666666666666666,
+        "lowestWinrateChampionWR": 0.6,
         "avgLpGainPerWin": 40.642857142857146,
         "avgLpLossPerLoss": 19.11111111111111,
         "lpDelta": {
