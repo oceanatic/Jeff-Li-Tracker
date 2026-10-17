@@ -1,7 +1,7 @@
 {
   "updatedAt": {
-    "iso": "2026-10-16T20:30:38.754823-04:00",
-    "display": "Last Updated: 8:30PM on 10/16"
+    "iso": "2026-10-16T20:35:36.155595-04:00",
+    "display": "Last Updated: 8:35PM on 10/16"
   },
   "split": {
     "queue": 420,
@@ -15,7 +15,7 @@
       "current": {
         "tier": "DIAMOND",
         "division": "II",
-        "lp": 80,
+        "lp": 75,
         "wins": 300,
         "losses": 283,
         "games": 583,
@@ -225,6 +225,12 @@
           "tier": "DIAMOND",
           "division": "II",
           "lp": 80
+        },
+        {
+          "ts": 1792197335,
+          "tier": "DIAMOND",
+          "division": "II",
+          "lp": 75
         }
       ],
       "matchesSeen": [
