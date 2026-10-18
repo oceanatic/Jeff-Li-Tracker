@@ -58,36 +58,56 @@ def rank_value(rank):
     return TIERS.index(tier) * 400 + (DIVISIONS.get(rank.get("division"), 0) * 100 if TIERS.index(tier) < 7 else 0) + lp
 
 
-def race_position(current, initial, direction):
-    """Progress on the player's half of a shared, Emerald-centered race bar."""
+# Fixed endpoints for the two halves of the race meter:
+# Jam: Platinum IV 0 LP -> Emerald IV 0 LP (left to center).
+# Antoñio: Diamond I 100 LP -> Emerald I 100 LP (right to center).
+PLATINUM_FLOOR = TIERS.index("PLATINUM") * 400
+EMERALD_FLOOR = TIERS.index("EMERALD") * 400
+DIAMOND_FLOOR = TIERS.index("DIAMOND") * 400
+DIAMOND_TOP = DIAMOND_FLOOR + 400
+RACE_SPAN = 400
+
+
+def race_position(current, direction):
+    """Fixed-scale progress to Emerald, independent of the first tracking run.
+
+    Progress is clamped to [0, 1]. A Platinum I 100 or Diamond IV 0
+    boundary does not count as Emerald until Riot reports an Emerald rank.
+    """
     current_v = rank_value(current)
-    initial_v = rank_value(initial)
-    if current_v is None or initial_v is None:
+    if current_v is None:
         return None
-    emerald_min = TIERS.index("EMERALD") * 400
-    emerald_max = emerald_min + 399
-    if emerald_min <= current_v <= emerald_max:
-        return 1.0
+    tier_index = TIERS.index(current["tier"])
     if direction == "up":
-        if current_v > emerald_max:
+        if tier_index >= TIERS.index("EMERALD"):
             return 1.0
-        if initial_v >= emerald_min:
-            return 0.0  # Started above/beyond target; direction is atypical.
-        return max(0, min(1, (current_v - initial_v) / (emerald_min - initial_v)))
-    if current_v < emerald_min:
-        return 1.0
-    if initial_v <= emerald_max:
-        return 0.0
-    return max(0, min(1, (initial_v - current_v) / (initial_v - emerald_max)))
+        if tier_index < TIERS.index("PLATINUM"):
+            return 0.0
+        return max(0.0, min(0.9975, (current_v - PLATINUM_FLOOR) / RACE_SPAN))
+    if direction == "down":
+        if tier_index <= TIERS.index("EMERALD"):
+            return 1.0
+        if tier_index > TIERS.index("DIAMOND"):
+            return 0.0
+        return max(0.0, min(0.9975, (DIAMOND_TOP - current_v) / RACE_SPAN))
+    raise ValueError(f"Unknown race direction: {direction}")
 
 
-def distance_to_emerald(current):
+def distance_to_emerald(current, direction):
+    """Approximate LP remaining to the Emerald edge approached by this player."""
     val = rank_value(current)
     if val is None:
         return None
-    lo = TIERS.index("EMERALD") * 400
-    hi = lo + 399
-    return max(lo - val, val - hi, 0)
+    tier_index = TIERS.index(current["tier"])
+    if direction == "up":
+        if tier_index >= TIERS.index("EMERALD"):
+            return 0
+        return max(1, EMERALD_FLOOR - val)
+    if direction == "down":
+        if tier_index <= TIERS.index("EMERALD"):
+            return 0
+        return max(1, val - DIAMOND_FLOOR)
+    raise ValueError(f"Unknown race direction: {direction}")
 
 
 def fresh_player(player):
@@ -96,7 +116,6 @@ def fresh_player(player):
         "direction": player["direction"],
         "puuid": None,
         "current": None,
-        "initialRank": None,
         "rankHistory": [],
         "matches": {},
         "pendingMatchIds": [],
@@ -374,15 +393,14 @@ def update_player(player_state, player):
 
     current = get_rank(puuid, player)
     player_state["current"] = current
+    player_state.pop("initialRank", None)  # Legacy, no longer used as a race baseline.
     if current:
         baseline = {k: current[k] for k in ("tier", "division", "lp")}
-        if not player_state.get("initialRank"):
-            player_state["initialRank"] = dict(baseline)
         past = player_state.setdefault("rankHistory", [])
         if not past or any(past[-1].get(k) != baseline[k] for k in baseline):
             past.append({"ts": int(time.time()), **baseline})
-    player_state["distanceToEmeraldLpEquivalent"] = distance_to_emerald(current)
-    player_state["raceProgress"] = race_position(current, player_state.get("initialRank"), player["direction"])
+    player_state["distanceToEmeraldLpEquivalent"] = distance_to_emerald(current, player["direction"])
+    player_state["raceProgress"] = race_position(current, player["direction"])
 
     matches = player_state.setdefault("matches", {})
     pending = player_state.setdefault("pendingMatchIds", [])
