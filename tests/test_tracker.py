@@ -16,22 +16,39 @@ class EmeraldRaceTests(unittest.TestCase):
                          [('Jam', 'Jam', '0304', 'na1'), ('Antoñio', 'Antoñio', '9401', 'na1')])
         self.assertEqual(list(mod.fresh_state()['players']), ['Jam', 'Antoñio'])
 
-    def test_rank_distances_from_both_sides(self):
+    def test_fixed_rank_scale_and_distance(self):
+        plat4 = {'tier': 'PLATINUM', 'division': 'IV', 'lp': 0}
+        plat2 = {'tier': 'PLATINUM', 'division': 'II', 'lp': 40}
         plat1 = {'tier': 'PLATINUM', 'division': 'I', 'lp': 50}
-        plat1up = {'tier': 'PLATINUM', 'division': 'I', 'lp': 75}
+        plat_cap = {'tier': 'PLATINUM', 'division': 'I', 'lp': 100}
         em4 = {'tier': 'EMERALD', 'division': 'IV', 'lp': 0}
-        diam2 = {'tier': 'DIAMOND', 'division': 'II', 'lp': 45}
-        diam3 = {'tier': 'DIAMOND', 'division': 'III', 'lp': 20}
-        self.assertEqual(mod.distance_to_emerald(plat1), 50)
-        self.assertEqual(mod.distance_to_emerald(em4), 0)
-        self.assertEqual(mod.distance_to_emerald(diam2), 246)
-        self.assertEqual(mod.race_position(plat1, plat1, 'up'), 0)
-        self.assertEqual(mod.race_position(plat1up, plat1, 'up'), 0.5)
-        self.assertEqual(mod.race_position(em4, plat1, 'up'), 1)
-        self.assertEqual(mod.race_position(diam2, diam2, 'down'), 0)
-        self.assertTrue(0 < mod.race_position(diam3, diam2, 'down') < 1)
-        self.assertEqual(mod.race_position(em4, diam2, 'down'), 1)
-        self.assertIsNone(mod.race_position(None, diam2, 'up'))
+        em1 = {'tier': 'EMERALD', 'division': 'I', 'lp': 99}
+        diam4 = {'tier': 'DIAMOND', 'division': 'IV', 'lp': 0}
+        diam2 = {'tier': 'DIAMOND', 'division': 'II', 'lp': 20}
+        diam1 = {'tier': 'DIAMOND', 'division': 'I', 'lp': 100}
+        above = {'tier': 'MASTER', 'division': None, 'lp': 50}
+        below = {'tier': 'GOLD', 'division': 'I', 'lp': 99}
+
+        self.assertEqual(mod.distance_to_emerald(plat1, 'up'), 50)
+        self.assertEqual(mod.distance_to_emerald(em4, 'up'), 0)
+        self.assertEqual(mod.distance_to_emerald(diam2, 'down'), 220)
+        self.assertEqual(mod.race_position(plat4, 'up'), 0)
+        self.assertAlmostEqual(mod.race_position(plat2, 'up'), 0.60)
+        self.assertEqual(mod.race_position(plat_cap, 'up'), 0.9975)
+        self.assertEqual(mod.race_position(em4, 'up'), 1)
+        self.assertEqual(mod.race_position(below, 'up'), 0)
+        self.assertEqual(mod.race_position(diam1, 'down'), 0)
+        self.assertAlmostEqual(mod.race_position(diam2, 'down'), 0.45)
+        self.assertEqual(mod.race_position(diam4, 'down'), 0.9975)
+        self.assertEqual(mod.race_position(em1, 'down'), 1)
+        self.assertEqual(mod.race_position(above, 'down'), 0)
+        self.assertEqual(mod.distance_to_emerald(plat4, 'up'), 400)
+        self.assertEqual(mod.distance_to_emerald(diam1, 'down'), 400)
+        self.assertEqual(mod.distance_to_emerald(plat_cap, 'up'), 1)
+        self.assertEqual(mod.distance_to_emerald(diam4, 'down'), 1)
+        self.assertIsNone(mod.race_position(None, 'up'))
+        with self.assertRaises(ValueError):
+            mod.race_position(plat4, 'sideways')
 
     def make_match(self, start, me_role='MIDDLE'):
         return {'info': {'queueId': 420, 'gameStartTimestamp': start*1000, 'gameDuration': 1800,
@@ -81,7 +98,7 @@ class EmeraldRaceTests(unittest.TestCase):
     def test_collect_deduplicates_matches_and_uses_start_time(self):
         player = mod.PLAYERS[0]
         state = mod.fresh_player(player)
-        rank = {'tier': 'GOLD', 'division': 'I', 'lp': 99, 'wins': 30, 'losses': 25}
+        rank = {'tier': 'PLATINUM', 'division': 'II', 'lp': 40, 'wins': 30, 'losses': 25}
         ids_calls = []
         def fake_ids(_, __, offset):
             ids_calls.append(offset)
@@ -100,12 +117,12 @@ class EmeraldRaceTests(unittest.TestCase):
             self.assertEqual(state['stats']['games'], 1)
             self.assertEqual(state['stats']['averageGoldLead15NonSupport'], 500)
             self.assertEqual(state['stats']['averageAiScoreWin'], 80.5)
-            self.assertEqual(state['initialRank']['tier'], 'GOLD')
+            self.assertNotIn('initialRank', state)
             self.assertEqual(state['coverage']['pendingGames'], 0)
             mod.update_player(state, player)
             self.assertEqual(state['stats']['games'], 1)
             self.assertEqual(len(state['matches']), 1)
-            self.assertEqual(state['raceProgress'], 0)
+            self.assertAlmostEqual(state['raceProgress'], 0.60)
         self.assertTrue(ids_calls)
 
     def test_fate_is_estimate_only_with_complete_teammate_scores(self):
