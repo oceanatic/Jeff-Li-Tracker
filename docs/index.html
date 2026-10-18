@@ -12,56 +12,79 @@
     .container{max-width:1260px;padding:32px 22px 64px;margin:auto}
     .eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800;color:var(--emerald)}
     h1,h2,h3,p{margin-top:0}h1{font-size:clamp(35px,5vw,63px);line-height:1.02;font-weight:900;letter-spacing:-2px;margin:10px 0 14px}h1 span{color:var(--emerald)}
-    .intro{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:30px}.sub{max-width:675px;color:var(--muted);margin:0;font-size:14px}.updated{text-align:right;font-size:12px;color:var(--muted);white-space:nowrap}
+    .intro{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:25px}.updated{text-align:right;font-size:12px;color:var(--muted);white-space:nowrap}
     .panel{background:linear-gradient(145deg,#132235,#101a2b 68%,#101a27);border:1px solid var(--line);border-radius:19px;box-shadow:0 16px 45px #0003}
-    .race{padding:27px 31px 23px;margin-bottom:24px;overflow:hidden;position:relative}.race:before{content:"";position:absolute;width:360px;height:200px;left:50%;top:-145px;transform:translateX(-50%);background:#20ce9940;filter:blur(70px);pointer-events:none}
-    .race-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}.race-heading h2{font-size:17px;margin:0;letter-spacing:.4px}.race-note{font-size:12px;color:var(--muted)}
+    .race{padding:30px 31px 27px;margin-bottom:24px;overflow:hidden;position:relative}.race:before{content:"";position:absolute;width:360px;height:200px;left:50%;top:-145px;transform:translateX(-50%);background:#20ce9940;filter:blur(70px);pointer-events:none}
+    
     .competitors{display:grid;grid-template-columns:1fr 150px 1fr;align-items:end;gap:6px;margin-bottom:18px}.person{text-align:left}.person.right{text-align:right}.person-name{font-size:21px;font-weight:900;letter-spacing:.2px}.person-name.jam{color:var(--jam)}.person-name.anton{color:var(--anton)}.rank{font-size:16px;font-weight:800;margin-top:2px}.distance{color:var(--muted);font-size:12px;margin-top:4px}.center-label{text-align:center;color:var(--emerald);font-size:11px;font-weight:900;letter-spacing:1.7px}
     .race-track{display:grid;grid-template-columns:1fr 18px 1fr;gap:0;height:30px;align-items:stretch;position:relative;margin-top:5px}
     .lane{background:#08121e;border:1px solid #2d4053;position:relative;overflow:hidden}.lane.left{border-radius:9px 0 0 9px}.lane.right{border-radius:0 9px 9px 0}.lane::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0%,transparent calc(25% - 1px),#ffffff10 calc(25% - 1px),#ffffff10 25%);pointer-events:none}
     .lane-fill{height:100%;width:0;transition:width .6s ease;position:absolute;top:0}.lane.left .lane-fill{left:0;background:linear-gradient(90deg,#177fac,var(--jam))}.lane.right .lane-fill{right:0;background:linear-gradient(270deg,#d35d57,var(--anton))}.finish{background:linear-gradient(var(--emerald),#11a87a);box-shadow:0 0 23px #44e6b499;z-index:1;border-radius:4px}
     .lane-marker{position:absolute;top:1px;height:26px;width:3px;border-radius:3px;background:#fff;box-shadow:0 0 7px #fff9;z-index:2}.lane.left .lane-marker{left:0}.lane.right .lane-marker{right:0}
-    .track-labels{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);margin-top:10px}.track-labels strong{color:var(--emerald);font-size:11px}.disclaimer{margin:22px 0 0;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:15px}
+    .track-labels{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);margin-top:10px}.track-labels strong{color:var(--emerald);font-size:11px}
     .player-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:21px}.player-card{overflow:hidden}.player-card.jam{border-top:3px solid var(--jam)}.player-card.anton{border-top:3px solid var(--anton)}
-    .card-head{padding:25px 26px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.card-head h2{margin:0 0 4px;font-size:28px;font-weight:900;line-height:1}.handle{color:var(--muted);font-size:12px}.objective{text-align:right;font-size:11px;line-height:1.3;text-transform:uppercase;letter-spacing:1px;font-weight:800}.jam .objective{color:var(--jam)}.anton .objective{color:var(--anton)}.rank-chip{margin-top:5px;color:var(--white);text-transform:none;letter-spacing:0;font-size:14px}
+    .card-head{padding:25px 26px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.card-head h2{margin:0 0 4px;font-size:28px;font-weight:900;line-height:1}.handle{color:var(--muted);font-size:12px}
     .card-inner{padding:19px 25px 25px}.tabs{display:flex;border-bottom:1px solid var(--line);gap:6px;overflow-x:auto;margin-bottom:20px}.tab{padding:10px 12px 13px;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;font-size:12px;font-weight:800;white-space:nowrap}.tab[aria-selected="true"]{color:var(--white);border-color:var(--emerald)}.jam .tab[aria-selected="true"]{border-color:var(--jam)}.anton .tab[aria-selected="true"]{border-color:var(--anton)}
     .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#0a1421;border:1px solid #253549;border-radius:11px;padding:13px 14px;min-width:0}.stat .label{font-size:11px;letter-spacing:.35px;color:var(--muted);text-transform:uppercase;font-weight:750}.stat .value{font-size:clamp(17px,2.4vw,23px);font-weight:900;margin-top:4px;line-height:1.28;word-break:break-word}.stat .detail{font-size:11px;color:var(--muted);margin-top:3px}
     .detail-title{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:0 0 13px}.mini-note{font-size:12px;color:var(--muted);margin:14px 0 0}.count-row{display:grid;grid-template-columns:93px 1fr 44px;align-items:center;gap:11px;margin:13px 0;font-size:12px}.count-row .key{font-weight:750}.count-row .num{text-align:right;color:var(--muted)}.meter{background:#0a1421;border:1px solid #27394b;border-radius:8px;height:10px;overflow:hidden}.meter-fill{height:100%;background:var(--emerald);border-radius:8px}.jam .meter-fill{background:var(--jam)}.anton .meter-fill{background:var(--anton)}.separator{height:1px;background:var(--line);margin:23px 0}.champ-list{display:grid;gap:9px}.champ-row{display:flex;justify-content:space-between;gap:10px;border:1px solid #28394c;background:#0b1622;border-radius:10px;padding:10px 12px;font-size:13px}.champ-row span:last-child{color:var(--muted)}
     .state{color:var(--muted);font-size:12px;margin:18px 0 0}.error{border:1px solid #c96767;color:#ffb8a8;background:#48252855;padding:12px 16px;border-radius:10px;margin-top:18px;display:none}
-    .foot{margin-top:22px;text-align:center;color:var(--muted);font-size:12px}.foot a{color:var(--emerald)}
+    
     @media(max-width:850px){.player-grid{grid-template-columns:1fr}.intro{align-items:start}.card-head h2{font-size:25px}}
-    @media(max-width:590px){.container{padding:22px 13px 45px}.intro{display:block}.updated{text-align:left;white-space:normal;margin-top:15px}.race{padding:21px 14px 19px}.competitors{grid-template-columns:1fr 84px 1fr}.person-name{font-size:18px}.rank{font-size:13px}.distance{font-size:11px}.center-label{font-size:9px}.card-head{padding:20px 16px}.card-inner{padding:16px}.stat{padding:12px 10px}.stat .value{font-size:18px}.race-heading{display:block}.race-note{margin-top:7px}}
+    @media(max-width:590px){.container{padding:22px 13px 45px}.intro{display:block}.updated{text-align:left;white-space:normal;margin-top:15px}.race{padding:21px 14px 19px}.competitors{grid-template-columns:1fr 84px 1fr}.person-name{font-size:18px}.rank{font-size:13px}.distance{font-size:11px}.center-label{font-size:9px}.card-head{padding:20px 16px}.card-inner{padding:16px}.stat{padding:12px 10px}.stat .value{font-size:18px}}
   </style>
 </head>
 <body>
   <main class="container">
     <div class="intro">
-      <div><div class="eyebrow">League of Legends · NA · Ranked Solo/Duo</div><h1>RACE TO <span>EMERALD</span></h1><p class="sub">The Most Intense Race Ever... Somehow...</p></div>
+      <div><div class="eyebrow">NA · Ranked Solo/Duo</div><h1>RACE TO <span>EMERALD</span></h1></div>
       <div class="updated" id="updated">Awaiting first data update</div>
     </div>
-    <section class="panel race" aria-labelledby="race-title">
-      <div class="race-heading"><h2 id="race-title">THE EMERALD SHOWDOWN</h2></div>
+    <section class="panel race" aria-label="Rank race progress">
       <div class="competitors">
-        <div class="person"><div class="person-name jam">JAM</div><div class="rank" id="jamRank">Awaiting rank</div><div class="distance" id="jamDistance">— from Emerald</div></div>
+        <div class="person"><div class="person-name jam">JAM</div><div class="rank" id="jamRank">Awaiting rank</div><div class="distance" id="jamDistance">—</div></div>
         <div class="center-label">◆<div>EMERALD</div></div>
-        <div class="person right"><div class="person-name anton">ANTOÑIO</div><div class="rank" id="antonRank">Awaiting rank</div><div class="distance" id="antonDistance">— from Emerald</div></div>
+        <div class="person right"><div class="person-name anton">ANTOÑIO</div><div class="rank" id="antonRank">Awaiting rank</div><div class="distance" id="antonDistance">—</div></div>
       </div>
       <div class="race-track" role="img" aria-label="Jam fills left-to-right toward Emerald at center; Antoñio fills right-to-left toward Emerald at center">
         <div class="lane left"><div class="lane-fill" id="jamFill"></div><div class="lane-marker" id="jamMarker" hidden></div></div>
         <div class="finish" title="Emerald target"></div>
         <div class="lane right"><div class="lane-fill" id="antonFill"></div><div class="lane-marker" id="antonMarker" hidden></div></div>
       </div>
-      <div class="track-labels"><span>JAM · START</span><strong>EMERALD</strong><span>START · ANTOÑIO</span></div>
+      <div class="track-labels"><span>PLATINUM IV · 0 LP</span><strong>EMERALD</strong><span>DIAMOND I · 100 LP</span></div>
     </section>
     <section class="player-grid" id="players" aria-label="Player statistics"></section>
     <div class="error" id="error" role="alert"></div>
-    <footer class="foot">Riot match data · DeepLoL unofficial cached enrichment (where available) · Fate labels are calculated estimates, not official DeepLoL ratings. <a href="https://developer.riotgames.com/" target="_blank" rel="noopener noreferrer">Riot API</a></footer>
   </main>
   <script>
     "use strict";
     const ROLES = ["TOP", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY", "UNKNOWN"];
     const ROLE_NAMES = {TOP:"Top", JUNGLE:"Jungle", MIDDLE:"Mid", BOTTOM:"Bot", UTILITY:"Support", UNKNOWN:"Unknown"};
     const FATES = ["Godlike", "Solid", "Balanced", "Messy", "Doomed", "Unavailable"];
+    const TIERS = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
+    const DIVISIONS = {IV:0, III:1, II:2, I:3};
+    function rankValue(rank) {
+      const index = TIERS.indexOf(rank?.tier);
+      if (index < 0) return null;
+      return index * 400 + (index < 7 ? (DIVISIONS[rank.division] ?? 0) * 100 : 0) + (Number(rank.lp) || 0);
+    }
+    function rankProgress(rank, direction) {
+      const current = rankValue(rank);
+      if (current === null) return null;
+      const tier = TIERS.indexOf(rank.tier);
+      // Left: Plat IV 0 (1600) to Emerald IV 0 (2000).
+      // Right: Diamond I 100 (2800) to Emerald I 100 (2400).
+      if (direction === "up") {
+        if (tier >= 5) return 1;
+        if (tier < 4) return 0;
+        return Math.max(0, Math.min(.9975, (current - 1600) / 400));
+      }
+      if (direction === "down") {
+        if (tier <= 5) return 1;
+        if (tier > 6) return 0;
+        return Math.max(0, Math.min(.9975, (2800 - current) / 400));
+      }
+      return null;
+    }
     const ids = {Jam:"jam", "Antoñio":"anton"};
     let lastData = null;
     const $ = id => document.getElementById(id);
@@ -71,7 +94,6 @@
     const pct = v => Number.isFinite(v) ? `${(v*100).toFixed(1)}%` : "—";
     const time = seconds => {if(!Number.isFinite(seconds)) return "—";const h=Math.floor(seconds/3600),m=Math.floor((seconds%3600)/60);return `${h}h ${m}m`;};
     const signedGold = v => Number.isFinite(v) ? `${v>0?'+':''}${Math.round(v).toLocaleString()} g` : "—";
-    const rankName = r => r?.tier ? `${esc(r.tier)} ${r.tier.match(/^(MASTER|GRANDMASTER|CHALLENGER)$/)?'':esc(r.division||'')} · ${int(r.lp)} LP` : "Unranked / unavailable";
     function stat(label,value,detail="") {return `<div class="stat"><div class="label">${esc(label)}</div><div class="value">${value}</div>${detail?`<div class="detail">${esc(detail)}</div>`:""}</div>`;}
     function bars(counts,order){let total=order.reduce((a,k)=>a+(counts?.[k]||0),0);return order.map(key=>{let count=counts?.[key]||0,share=total?count/total*100:0;return `<div class="count-row"><div class="key">${esc(ROLE_NAMES[key]||key)}</div><div class="meter"><div class="meter-fill" style="width:${share.toFixed(1)}%"></div></div><div class="num">${int(count)}</div></div>`;}).join("");}
     function overview(p){const s=p?.stats||{};const most=s.mostPlayedChampion;const total=s.games||0;return `<div class="stats">
@@ -79,21 +101,38 @@
       ${stat("Win rate",pct(s.winrate))}
       ${stat("Total playtime",time(s.totalPlaytimeSeconds))}
       ${stat("Most played champion",most?esc(most.name||`Champion #${most.id}`):"—",most?`${most.games} games · ${pct(most.wins/most.games)} win rate`:"")}
-      ${stat("Average KDA",num(s.averageKda,2)}
+      ${stat("Average KDA",num(s.averageKda,2))}
       ${stat("Average CS / min",num(s.averageCsPerMin,2))}
     </div>${coverage(p)}`;}
-    function coverage(p){let c=p?.coverage;if(!c)return '<p class="state">Statistics will appear after the first collector run.</p>';if(c.pendingGames||!c.historyScanComplete)return `<p class="state">Collecting history: ${int(c.pendingGames||0)} match(es) queued${c.historyScanComplete?"":" · scanning more history"}. Totals may still increase.</p>`;return '<p class="state">All discovered games since the cutoff are processed.</p>';}
+    function coverage(p){const c=p?.coverage;if(!c)return "";if(c.pendingGames||!c.historyScanComplete)return `<p class="state">Updating match history…</p>`;return "";}
     function insights(p){const s=p?.stats||{};return `<div class="stats">
-      ${stat("DeepLoL AI score · wins",num(s.averageAiScoreWin),`${s.aiWinSampleCount||0} scored winning games`)}
-      ${stat("DeepLoL AI score · losses",num(s.averageAiScoreLoss),`${s.aiLossSampleCount||0} scored losing games`)}
-      ${stat("Gold lead @ 15 · non-support",signedGold(s.averageGoldLead15NonSupport),`${s.goldLead15SampleCount||0} matched lanes with a 15m timeline`)}
+      ${stat("DeepLoL AI score · wins",num(s.averageAiScoreWin),`${s.aiWinSampleCount||0} matches`)}
+      ${stat("DeepLoL AI score · losses",num(s.averageAiScoreLoss),`${s.aiLossSampleCount||0} matches`)}
+      ${stat("Gold lead @ 15 · non-support",signedGold(s.averageGoldLead15NonSupport),`${s.goldLead15SampleCount||0} matches`)}
       ${stat("Scored matches",int((s.aiWinSampleCount||0)+(s.aiLossSampleCount||0)),`of ${s.games||0} total games`)}
-    </div><div class="separator"></div><h3 class="detail-title">Estimated fate breakdown</h3>${bars(s.fateCounts,FATES)}<p class="mini-note">Fates are estimates calculated from DeepLoL player and teammate AI scores, using the previous tracker’s formula. “Unavailable” means the cache/score did not supply a classification. Blank or missing scores are never treated as zero.</p>`;}
-    function roles(p){const s=p?.stats||{};const champs=Object.values(s.champions||{}).sort((a,b)=>b.games-a.games).slice(0,8);return `<h3 class="detail-title">Games by role</h3>${bars(s.roleCounts,ROLES)}<div class="separator"></div><h3 class="detail-title">Most played champions</h3><div class="champ-list">${champs.length?champs.map(c=>`<div class="champ-row"><strong>${esc(c.name||'Unknown champion')}</strong><span>${int(c.games)} games · ${pct(c.games?c.wins/c.games:null)} WR</span></div>`).join(""):'<p class="mini-note">No games recorded yet.</p>'}</div><p class="mini-note">Role breakdown uses Riot’s reported team position. Unknown positions are counted separately rather than guessed.</p>`;}
-    function card(label,p){const id=ids[label],direction=label==="Jam"?"CLIMB TO EMERALD":"DESCEND TO EMERALD";return `<article class="panel player-card ${id}" data-player="${esc(label)}"><header class="card-head"><div><h2>${esc(label)}</h2><div class="handle">${esc(p?.riotId|| (label==="Jam"?"Jam#0304":"Antoñio#9401"))}</div></div><div class="objective">${direction}<div class="rank-chip">${rankName(p?.current)}</div></div></header><div class="card-inner"><div class="tabs" role="tablist" aria-label="${esc(label)} statistics"><button class="tab" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="tab" type="button" role="tab" aria-selected="false" data-tab="insights">AI &amp; Fate</button><button class="tab" type="button" role="tab" aria-selected="false" data-tab="roles">Roles &amp; Champs</button></div><div class="tabpanel" role="tabpanel">${overview(p)}</div></div></article>`;}
-    function updateRace(label,p){const id=ids[label];$(id+"Rank").textContent=p?.current?.tier?`${p.current.tier} ${/^(MASTER|GRANDMASTER|CHALLENGER)$/.test(p.current.tier)?'':p.current.division||''} · ${p.current.lp} LP`:'Awaiting rank';const d=p?.distanceToEmeraldLpEquivalent;let distance=Number.isFinite(d)?`${int(d)} LP-equivalent to Emerald${d===0&&p?.current?.tier==='EMERALD'?' · arrived':''}`:'Rank unavailable';$(id+"Distance").textContent=distance;const value=Number.isFinite(p?.raceProgress)?Math.max(0,Math.min(1,p.raceProgress))*100:null;$(id+"Fill").style.width=value===null?"0%":`${value}%`;const marker=$(id+"Marker");marker.hidden=value===null;if(value!==null){if(id==="jam")marker.style.left=`clamp(0px, ${value}%, calc(100% - 3px))`;else marker.style.right=`clamp(0px, ${value}%, calc(100% - 3px))`;}}
+    </div><div class="separator"></div><h3 class="detail-title">Estimated fate</h3>${bars(s.fateCounts,FATES)}`;}
+    function roles(p){const s=p?.stats||{};const champs=Object.values(s.champions||{}).sort((a,b)=>b.games-a.games).slice(0,8);return `<h3 class="detail-title">Games by role</h3>${bars(s.roleCounts,ROLES)}<div class="separator"></div><h3 class="detail-title">Most played champions</h3><div class="champ-list">${champs.length?champs.map(c=>`<div class="champ-row"><strong>${esc(c.name||'Unknown champion')}</strong><span>${int(c.games)} games · ${pct(c.games?c.wins/c.games:null)} WR</span></div>`).join(""):'<p class="mini-note">No games recorded yet.</p>'}</div>`;}
+    function card(label,p){const id=ids[label];return `<article class="panel player-card ${id}" data-player="${esc(label)}"><header class="card-head"><div><h2>${esc(label)}</h2><div class="handle">${esc(p?.riotId|| (label==="Jam"?"Jam#0304":"Antoñio#9401"))}</div></div></header><div class="card-inner"><div class="tabs" role="tablist" aria-label="${esc(label)} statistics"><button class="tab" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="tab" type="button" role="tab" aria-selected="false" data-tab="insights">AI &amp; Fate</button><button class="tab" type="button" role="tab" aria-selected="false" data-tab="roles">Roles &amp; Champs</button></div><div class="tabpanel" role="tabpanel">${overview(p)}</div></div></article>`;}
+    function updateRace(label,p){
+      const id=ids[label],rank=p?.current;
+      $(id+"Rank").textContent=rank?.tier?`${rank.tier} ${/^(MASTER|GRANDMASTER|CHALLENGER)$/.test(rank.tier)?"":rank.division||""} · ${rank.lp} LP`:"Rank unavailable";
+      const distance=p?.distanceToEmeraldLpEquivalent;
+      const tierIndex=TIERS.indexOf(rank?.tier);
+      const reached=tierIndex>=0&&(label==="Jam"?tierIndex>=5:tierIndex<=5);
+      $(id+"Distance").textContent=reached?"Emerald reached":Number.isFinite(distance)?`≈${int(distance)} LP to Emerald`:"—";
+      // Always compute from the current Riot rank, never the first rank seen.
+      const progress=rankProgress(rank, label==="Jam"?"up":"down");
+      const value=progress===null?null:progress*100;
+      $(id+"Fill").style.width=value===null?"0%":`${value}%`;
+      const marker=$(id+"Marker");
+      marker.hidden=value===null;
+      if(value!==null){
+        if(id==="jam")marker.style.left=`clamp(0px, ${value}%, calc(100% - 3px))`;
+        else marker.style.right=`clamp(0px, ${value}%, calc(100% - 3px))`;
+      }
+    }
     function updatedDisplay(){if(!lastData)return;const timestamp=lastData.updatedAt?.iso;if(!timestamp){$("updated").textContent="Awaiting first collector run";return;}const dt=new Date(timestamp);if(Number.isNaN(dt.getTime()))return;const age=Math.max(0,Math.floor((Date.now()-dt.getTime())/60000));$("updated").textContent=`Last sync · ${dt.toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'})} · ${age<1?'just now':age+'m ago'}`;}
-    function render(data){lastData=data;const players=data.players||{};$("players").innerHTML=["Jam","Antoñio"].map(name=>card(name,players[name])).join("");["Jam","Antoñio"].forEach(name=>updateRace(name,players[name]));document.querySelectorAll(".player-card").forEach(element=>{const name=element.dataset.player;const panel=element.querySelector(".tabpanel");element.querySelectorAll(".tab").forEach(button=>button.addEventListener("click",()=>{element.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b===button)));panel.innerHTML=({overview,insights,roles})[button.dataset.tab](players[name]);}));});const start=data.split?.startUnix;if(Number.isFinite(start))$("startDate").textContent=new Date(start*1000).toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});updatedDisplay();}
+    function render(data){lastData=data;const players=data.players||{};$("players").innerHTML=["Jam","Antoñio"].map(name=>card(name,players[name])).join("");["Jam","Antoñio"].forEach(name=>updateRace(name,players[name]));document.querySelectorAll(".player-card").forEach(element=>{const name=element.dataset.player;const panel=element.querySelector(".tabpanel");element.querySelectorAll(".tab").forEach(button=>button.addEventListener("click",()=>{element.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b===button)));panel.innerHTML=({overview,insights,roles})[button.dataset.tab](players[name]);}));});updatedDisplay();}
     async function load(){try{const response=await fetch(`./data.json?v=${Date.now()}`,{cache:"no-store"});if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();if(data.trackerSchemaVersion!=="emerald-race-v1")throw new Error("Data is from the previous tracker. Run the new updater to initialize the race.");render(data);$("error").style.display="none";}catch(err){$("error").textContent=`Tracker update unavailable: ${err.message}`;$("error").style.display="block";}}
     load();setInterval(load,60000);setInterval(updatedDisplay,15000);
   </script>
