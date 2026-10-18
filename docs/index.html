@@ -36,15 +36,15 @@
 <body>
   <main class="container">
     <div class="intro">
-      <div><div class="eyebrow">League of Legends · NA · Ranked Solo/Duo</div><h1>RACE TO <span>EMERALD</span></h1><p class="sub">One climbs. One descends. Jam pushes toward Emerald from below while Antoñio fights his way down from above. All champions, all roles, one finish line.</p></div>
+      <div><div class="eyebrow">League of Legends · NA · Ranked Solo/Duo</div><h1>RACE TO <span>EMERALD</span></h1><p class="sub">The Most Intense Race Ever... Somehow...</p></div>
       <div class="updated" id="updated">Awaiting first data update</div>
     </div>
     <section class="panel race" aria-labelledby="race-title">
       <div class="race-heading"><h2 id="race-title">THE EMERALD SHOWDOWN</h2><span class="race-note">Progress from each player's first observed rank</span></div>
       <div class="competitors">
-        <div class="person"><div class="person-name jam">JAM <span aria-hidden="true">↗</span></div><div class="rank" id="jamRank">Awaiting rank</div><div class="distance" id="jamDistance">— from Emerald</div></div>
+        <div class="person"><div class="person-name jam">JAM</div><div class="rank" id="jamRank">Awaiting rank</div><div class="distance" id="jamDistance">— from Emerald</div></div>
         <div class="center-label">◆<div>EMERALD</div></div>
-        <div class="person right"><div class="person-name anton"><span aria-hidden="true">↙</span> ANTOÑIO</div><div class="rank" id="antonRank">Awaiting rank</div><div class="distance" id="antonDistance">— from Emerald</div></div>
+        <div class="person right"><div class="person-name anton">ANTOÑIO</div><div class="rank" id="antonRank">Awaiting rank</div><div class="distance" id="antonDistance">— from Emerald</div></div>
       </div>
       <div class="race-track" role="img" aria-label="Jam fills left-to-right toward Emerald at center; Antoñio fills right-to-left toward Emerald at center">
         <div class="lane left"><div class="lane-fill" id="jamFill"></div><div class="lane-marker" id="jamMarker" hidden></div></div>
@@ -52,7 +52,6 @@
         <div class="lane right"><div class="lane-fill" id="antonFill"></div><div class="lane-marker" id="antonMarker" hidden></div></div>
       </div>
       <div class="track-labels"><span>JAM · START</span><strong>EMERALD</strong><span>START · ANTOÑIO</span></div>
-      <p class="disclaimer">Rank distance is an approximate LP-equivalent between divisions, not a prediction of actual games or LP needed (promotions/demotions are not strictly linear). Race progress uses the first rank observed after tracking begins. Games count only if they started on or after <strong id="startDate">Oct 18, 2026</strong>.</p>
     </section>
     <section class="player-grid" id="players" aria-label="Player statistics"></section>
     <div class="error" id="error" role="alert"></div>
@@ -80,7 +79,7 @@
       ${stat("Win rate",pct(s.winrate))}
       ${stat("Total playtime",time(s.totalPlaytimeSeconds))}
       ${stat("Most played champion",most?esc(most.name||`Champion #${most.id}`):"—",most?`${most.games} games · ${pct(most.wins/most.games)} win rate`:"")}
-      ${stat("Average KDA",num(s.averageKda,2),"(Kills + assists) / max(1, deaths), per match")}
+      ${stat("Average KDA",num(s.averageKda,2)}
       ${stat("Average CS / min",num(s.averageCsPerMin,2))}
     </div>${coverage(p)}`;}
     function coverage(p){let c=p?.coverage;if(!c)return '<p class="state">Statistics will appear after the first collector run.</p>';if(c.pendingGames||!c.historyScanComplete)return `<p class="state">Collecting history: ${int(c.pendingGames||0)} match(es) queued${c.historyScanComplete?"":" · scanning more history"}. Totals may still increase.</p>`;return '<p class="state">All discovered games since the cutoff are processed.</p>';}
