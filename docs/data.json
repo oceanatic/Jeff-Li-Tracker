@@ -1,953 +1,109 @@
 {
-  "updatedAt": {
-    "iso": "2026-10-18T03:20:36.033459-04:00",
-    "display": "Last Updated: 3:20AM on 10/18"
-  },
+  "trackerSchemaVersion": "emerald-race-v1",
+  "updatedAt": null,
   "split": {
     "queue": 420,
     "queueType": "RANKED_SOLO_5x5",
-    "startUnix": 1791783136
+    "startUnix": 1792307345
   },
+  "activePlayerLabels": [
+    "Jam",
+    "Antoñio"
+  ],
   "players": {
-    "Jeff Li: The Journey to Emerald": {
-      "riotId": "Buy Again#NA1",
-      "puuid": "zaMr0i-kWXk8MeNG6hsJ9a1YrM-M64VfZtEFPbT5qtJ_2rVOZOHt8UTc_Ya8KSKDVw4twCyiKabkcA",
-      "current": {
-        "tier": "DIAMOND",
-        "division": "III",
-        "lp": 95,
-        "wins": 307,
-        "losses": 293,
-        "games": 600,
-        "winrate": 0.5116666666666667
-      },
-      "leagueRecord": {
-        "wins": 307,
-        "losses": 293,
-        "games": 600,
-        "winrate": 0.5116666666666667
-      },
-      "peak": {
-        "tier": "MASTER",
-        "division": "I",
-        "lp": 1,
-        "ts": 1792038637
-      },
-      "lpHistory": [
-        {
-          "ts": 1791783336,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 28
-        },
-        {
-          "ts": 1791785138,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 48
-        },
-        {
-          "ts": 1791787238,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 28
-        },
-        {
-          "ts": 1791796538,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 85
-        },
-        {
-          "ts": 1791914138,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 4
-        },
-        {
-          "ts": 1791915939,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 23
-        },
-        {
-          "ts": 1791917738,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 42
-        },
-        {
-          "ts": 1791920776,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 21
-        },
-        {
-          "ts": 1791922840,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 40
-        },
-        {
-          "ts": 1791925236,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 19
-        },
-        {
-          "ts": 1791927037,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 98
-        },
-        {
-          "ts": 1791930037,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 18
-        },
-        {
-          "ts": 1791932739,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 37
-        },
-        {
-          "ts": 1791934536,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 56
-        },
-        {
-          "ts": 1791936640,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 74
-        },
-        {
-          "ts": 1791938740,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 52
-        },
-        {
-          "ts": 1791941138,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 30
-        },
-        {
-          "ts": 1791942938,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 49
-        },
-        {
-          "ts": 1791944441,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 27
-        },
-        {
-          "ts": 1792024836,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 46
-        },
-        {
-          "ts": 1792030537,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 65
-        },
-        {
-          "ts": 1792032338,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 43
-        },
-        {
-          "ts": 1792034738,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 62
-        },
-        {
-          "ts": 1792036256,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 81
-        },
-        {
-          "ts": 1792038637,
-          "tier": "MASTER",
-          "division": "I",
-          "lp": 1
-        },
-        {
-          "ts": 1792081237,
-          "tier": "MASTER",
-          "division": "I",
-          "lp": 0
-        },
-        {
-          "ts": 1792087536,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 50
-        },
-        {
-          "ts": 1792189837,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 27
-        },
-        {
-          "ts": 1792192240,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 45
-        },
-        {
-          "ts": 1792192536,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 22
-        },
-        {
-          "ts": 1792195238,
-          "tier": "DIAMOND",
-          "division": "I",
-          "lp": 1
-        },
-        {
-          "ts": 1792197038,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 80
-        },
-        {
-          "ts": 1792197335,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 75
-        },
-        {
-          "ts": 1792206344,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 54
-        },
-        {
-          "ts": 1792208736,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 33
-        },
-        {
-          "ts": 1792268436,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 52
-        },
-        {
-          "ts": 1792270837,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 31
-        },
-        {
-          "ts": 1792272638,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 50
-        },
-        {
-          "ts": 1792275037,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 29
-        },
-        {
-          "ts": 1792276536,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 8
-        },
-        {
-          "ts": 1792278339,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 27
-        },
-        {
-          "ts": 1792280437,
-          "tier": "DIAMOND",
-          "division": "II",
-          "lp": 6
-        },
-        {
-          "ts": 1792284037,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 85
-        },
-        {
-          "ts": 1792286143,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 63
-        },
-        {
-          "ts": 1792288240,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 41
-        },
-        {
-          "ts": 1792290037,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 59
-        },
-        {
-          "ts": 1792292137,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 78
-        },
-        {
-          "ts": 1792293340,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 97
-        },
-        {
-          "ts": 1792296038,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 76
-        },
-        {
-          "ts": 1792298437,
-          "tier": "DIAMOND",
-          "division": "III",
-          "lp": 95
-        }
-      ],
-      "matchesSeen": [
-        "NA1_5658855147",
-        "NA1_5658867570",
-        "NA1_5658888243",
-        "NA1_5658899592",
-        "NA1_5658913433",
-        "NA1_5658925197",
-        "NA1_5659623495",
-        "NA1_5659633620",
-        "NA1_5659649154",
-        "NA1_5659659483",
-        "NA1_5659676677",
-        "NA1_5659697451",
-        "NA1_5659711595",
-        "NA1_5659728638",
-        "NA1_5659748327",
-        "NA1_5659755571",
-        "NA1_5659776921",
-        "NA1_5659801913",
-        "NA1_5659817599",
-        "NA1_5659842554",
-        "NA1_5659873433",
-        "NA1_5659900996",
-        "NA1_5660386720",
-        "NA1_5660457340",
-        "NA1_5660463317",
-        "NA1_5660498078",
-        "NA1_5660529810",
-        "NA1_5660553579",
-        "NA1_5660573395",
-        "NA1_5660771163",
-        "NA1_5660781886",
-        "NA1_5660792163",
-        "NA1_5660799991",
-        "NA1_5661485145",
-        "NA1_5661493376",
-        "NA1_5661515079",
-        "NA1_5661522339",
-        "NA1_5661538677",
-        "NA1_5661667078",
-        "NA1_5661689150",
-        "NA1_5662060603",
-        "NA1_5662092028",
-        "NA1_5662104332",
-        "NA1_5662127864",
-        "NA1_5662149783",
-        "NA1_5662160286",
-        "NA1_5662169717",
-        "NA1_5662208635",
-        "NA1_5662239099",
-        "NA1_5662259555",
-        "NA1_5662287625",
-        "NA1_5662323962",
-        "NA1_5662357742",
-        "NA1_5662364394",
-        "NA1_5662410854"
-      ],
+    "Jam": {
+      "riotId": "Jam#0304",
+      "direction": "up",
+      "puuid": null,
+      "current": null,
+      "initialRank": null,
+      "rankHistory": [],
+      "matches": {},
       "pendingMatchIds": [],
-      "backfill": {
-        "nextStart": 0,
-        "done": true
-      },
-      "matchMeta": {
-        "NA1_5658855147": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791784969,
-          "participantId": 3
-        },
-        "NA1_5658867570": {
-          "championId": "81",
-          "win": false,
-          "gameEndTs": 1791787116,
-          "participantId": 4
-        },
-        "NA1_5658888243": {
-          "championId": "7",
-          "win": true,
-          "gameEndTs": 1791789427,
-          "participantId": 5
-        },
-        "NA1_5658899592": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791791741,
-          "participantId": 3
-        },
-        "NA1_5658913433": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791793957,
-          "participantId": 3
-        },
-        "NA1_5658925197": {
-          "championId": "7",
-          "win": false,
-          "gameEndTs": 1791796283,
-          "participantId": 8
-        },
-        "NA1_5659623495": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791914052,
-          "participantId": 8
-        },
-        "NA1_5659633620": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791915726,
-          "participantId": 8
-        },
-        "NA1_5659649154": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791917508,
-          "participantId": 3
-        },
-        "NA1_5659659483": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791920469,
-          "participantId": 3
-        },
-        "NA1_5659676677": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791922620,
-          "participantId": 8
-        },
-        "NA1_5659697451": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791924971,
-          "participantId": 1
-        },
-        "NA1_5659711595": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791926846,
-          "participantId": 8
-        },
-        "NA1_5659728638": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791929832,
-          "participantId": 8
-        },
-        "NA1_5659748327": {
-          "championId": "804",
-          "win": false,
-          "gameEndTs": 1791930482,
-          "participantId": 4
-        },
-        "NA1_5659755571": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791932447,
-          "participantId": 8
-        },
-        "NA1_5659776921": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791934427,
-          "participantId": 8
-        },
-        "NA1_5659801913": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791936295,
-          "participantId": 8
-        },
-        "NA1_5659817599": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791938721,
-          "participantId": 1
-        },
-        "NA1_5659842554": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791941132,
-          "participantId": 8
-        },
-        "NA1_5659873433": {
-          "championId": "38",
-          "win": true,
-          "gameEndTs": 1791942838,
-          "participantId": 8
-        },
-        "NA1_5659900996": {
-          "championId": "38",
-          "win": false,
-          "gameEndTs": 1791944222,
-          "participantId": 3
-        },
-        "NA1_5660386720": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792024778,
-          "participantId": 8
-        },
-        "NA1_5660457340": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792028079,
-          "participantId": 3
-        },
-        "NA1_5660463317": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792030468,
-          "participantId": 8
-        },
-        "NA1_5660498078": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792032333,
-          "participantId": 8
-        },
-        "NA1_5660529810": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792034449,
-          "participantId": 3
-        },
-        "NA1_5660553579": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792036172,
-          "participantId": 8
-        },
-        "NA1_5660573395": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792038468,
-          "participantId": 3
-        },
-        "NA1_5660771163": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792081178,
-          "participantId": 3
-        },
-        "NA1_5660781886": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792083181,
-          "participantId": 3
-        },
-        "NA1_5660792163": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792085121,
-          "participantId": 3
-        },
-        "NA1_5660799991": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792087406,
-          "participantId": 9
-        },
-        "NA1_5661485145": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792189806,
-          "participantId": 8
-        },
-        "NA1_5661493376": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792191953,
-          "participantId": 4
-        },
-        "NA1_5661515079": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792192378,
-          "participantId": 3
-        },
-        "NA1_5661522339": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792195220,
-          "participantId": 3
-        },
-        "NA1_5661538677": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792196834,
-          "participantId": 3
-        },
-        "NA1_5661667078": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792206251,
-          "participantId": 6
-        },
-        "NA1_5661689150": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792208651,
-          "participantId": 4
-        },
-        "NA1_5662060603": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792268329,
-          "participantId": 3
-        },
-        "NA1_5662092028": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792270634,
-          "participantId": 1
-        },
-        "NA1_5662104332": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792272458,
-          "participantId": 8
-        },
-        "NA1_5662127864": {
-          "championId": "166",
-          "win": false,
-          "gameEndTs": 1792274744,
-          "participantId": 3
-        },
-        "NA1_5662149783": {
-          "championId": "166",
-          "win": false,
-          "gameEndTs": 1792276503,
-          "participantId": 3
-        },
-        "NA1_5662160286": {
-          "championId": "13",
-          "win": true,
-          "gameEndTs": 1792278187,
-          "participantId": 3
-        },
-        "NA1_5662169717": {
-          "championId": "13",
-          "win": false,
-          "gameEndTs": 1792280156,
-          "participantId": 1
-        },
-        "NA1_5662208635": {
-          "championId": "7",
-          "win": false,
-          "gameEndTs": 1792283796,
-          "participantId": 5
-        },
-        "NA1_5662239099": {
-          "championId": "166",
-          "win": false,
-          "gameEndTs": 1792285916,
-          "participantId": 3
-        },
-        "NA1_5662259555": {
-          "championId": "166",
-          "win": false,
-          "gameEndTs": 1792288040,
-          "participantId": 3
-        },
-        "NA1_5662287625": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792289925,
-          "participantId": 8
-        },
-        "NA1_5662323962": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792292019,
-          "participantId": 3
-        },
-        "NA1_5662357742": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792293257,
-          "participantId": 8
-        },
-        "NA1_5662364394": {
-          "championId": "166",
-          "win": false,
-          "gameEndTs": 1792295811,
-          "participantId": 8
-        },
-        "NA1_5662410854": {
-          "championId": "166",
-          "win": true,
-          "gameEndTs": 1792298159,
-          "participantId": 8
-        }
+      "scan": {
+        "offset": 0,
+        "complete": false
       },
       "stats": {
-        "splitMatchIdsFound": null,
-        "splitMatchesProcessed": 55,
-        "splitBackfillRemaining": null,
-        "totalPlaytimeSeconds": 87165,
-        "totalPlaytimeHMS": "24:12:45",
-        "games": 55,
-        "wins": 27,
-        "losses": 28,
-        "leblancGames": 3,
-        "leblancWins": 1,
-        "leblancLosses": 2,
-        "leblancWinrate": 0.3333333333333333,
-        "gamesOffLeblanc": 52,
-        "champions": {
-          "38": {
-            "games": 18,
-            "wins": 12,
-            "losses": 6,
-            "playtimeSeconds": 28949
-          },
-          "81": {
-            "games": 1,
-            "wins": 0,
-            "losses": 1,
-            "playtimeSeconds": 1839
-          },
-          "7": {
-            "games": 3,
-            "wins": 1,
-            "losses": 2,
-            "playtimeSeconds": 5245
-          },
-          "804": {
-            "games": 1,
-            "wins": 0,
-            "losses": 1,
-            "playtimeSeconds": 389
-          },
-          "13": {
-            "games": 21,
-            "wins": 8,
-            "losses": 13,
-            "playtimeSeconds": 31485
-          },
-          "166": {
-            "games": 11,
-            "wins": 6,
-            "losses": 5,
-            "playtimeSeconds": 19258
-          }
-        },
-        "mostPlayedChampionId": "13",
-        "highestWinrateChampionId": "38",
-        "lowestWinrateChampionId": "13",
-        "highestWinrateChampionWR": 0.6666666666666666,
-        "lowestWinrateChampionWR": 0.38095238095238093,
-        "avgLpGainPerWin": 32.68181818181818,
-        "avgLpLossPerLoss": 34.25,
-        "lpDelta": {
-          "wins": [
-            20,
-            19,
-            19,
-            19,
-            19,
-            20,
-            19,
-            19,
-            19,
-            19,
-            19,
-            19,
-            19,
-            320,
-            18,
-            19,
-            19,
-            19,
-            18,
-            19,
-            19,
-            19
-          ],
-          "losses": [
-            20,
-            21,
-            21,
-            21,
-            22,
-            22,
-            22,
-            22,
-            1,
-            350,
-            23,
-            23,
-            21,
-            21,
-            21,
-            21,
-            21,
-            21,
-            21,
-            21,
-            21,
-            22,
-            22,
-            21
-          ]
-        },
-        "leblancMatchStats": {
-          "NA1_5658888243": {
-            "matchId": "NA1_5658888243",
-            "win": true,
-            "kills": 9,
-            "deaths": 5,
-            "assists": 18,
-            "kda": 5.4,
-            "cs": 43,
-            "csPerMin": 1.3063291139240507,
-            "durationSeconds": 1975,
-            "gameEndTs": 1791789427,
-            "participantId": 5,
-            "teamPosition": "UTILITY",
-            "individualPosition": "UTILITY",
-            "opponentParticipantId": 10,
-            "opponentChampionId": "117",
-            "aiScore": 81.23,
-            "fate": "Balanced",
-            "teamLuckValue": 50.1,
-            "teammateAverageAiScore": 58.269999999999996,
-            "goldLead15": 612
-          },
-          "NA1_5658925197": {
-            "matchId": "NA1_5658925197",
-            "win": false,
-            "kills": 3,
-            "deaths": 5,
-            "assists": 1,
-            "kda": 0.8,
-            "cs": 181,
-            "csPerMin": 6.886493341788205,
-            "durationSeconds": 1577,
-            "gameEndTs": 1791796283,
-            "participantId": 8,
-            "teamPosition": "MIDDLE",
-            "individualPosition": "MIDDLE",
-            "opponentParticipantId": 3,
-            "opponentChampionId": "105",
-            "aiScore": 40.21,
-            "fate": "Messy",
-            "teamLuckValue": 45.1,
-            "teammateAverageAiScore": 40.7,
-            "goldLead15": 45
-          },
-          "NA1_5662208635": {
-            "matchId": "NA1_5662208635",
-            "win": false,
-            "kills": 4,
-            "deaths": 8,
-            "assists": 11,
-            "kda": 1.875,
-            "cs": 32,
-            "csPerMin": 1.134081512108683,
-            "durationSeconds": 1693,
-            "gameEndTs": 1792283796,
-            "participantId": 5,
-            "teamPosition": "UTILITY",
-            "individualPosition": "UTILITY",
-            "opponentParticipantId": 10,
-            "opponentChampionId": "201",
-            "aiScore": 45.49,
-            "fate": "Messy",
-            "teamLuckValue": 43.3,
-            "teammateAverageAiScore": 39.620000000000005,
-            "goldLead15": 274
-          }
-        },
-        "leblancAverageAiScore": 55.64333333333334,
-        "leblancAverageKda": 2.691666666666667,
-        "leblancAverageKills": 5.333333333333333,
-        "leblancAverageDeaths": 6.0,
-        "leblancAverageAssists": 10.0,
-        "leblancAverageGoldLead15": 45.0,
-        "leblancAverageCsPerMin": 6.886493341788205,
-        "leblancFateCounts": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "winrate": null,
+        "totalPlaytimeSeconds": 0,
+        "mostPlayedChampion": null,
+        "champions": {},
+        "averageKda": null,
+        "averageCsPerMin": null,
+        "averageAiScoreWin": null,
+        "averageAiScoreLoss": null,
+        "aiWinSampleCount": 0,
+        "aiLossSampleCount": 0,
+        "averageGoldLead15NonSupport": null,
+        "goldLead15SampleCount": 0,
+        "fateCounts": {
           "Godlike": 0,
           "Solid": 0,
-          "Balanced": 1,
-          "Messy": 2,
-          "Doomed": 0
+          "Balanced": 0,
+          "Messy": 0,
+          "Doomed": 0,
+          "Unavailable": 0
         },
-        "leblancLpAttributions": {
-          "1792280437->1792284037": {
-            "delta": -21,
-            "matchIds": [
-              "NA1_5662208635"
-            ],
-            "from": {
-              "tier": "DIAMOND",
-              "division": "II",
-              "lp": 6
-            },
-            "to": {
-              "tier": "DIAMOND",
-              "division": "III",
-              "lp": 85
-            }
-          }
+        "roleCounts": {
+          "TOP": 0,
+          "JUNGLE": 0,
+          "MIDDLE": 0,
+          "BOTTOM": 0,
+          "UTILITY": 0,
+          "UNKNOWN": 0
+        }
+      }
+    },
+    "Antoñio": {
+      "riotId": "Antoñio#9401",
+      "direction": "down",
+      "puuid": null,
+      "current": null,
+      "initialRank": null,
+      "rankHistory": [],
+      "matches": {},
+      "pendingMatchIds": [],
+      "scan": {
+        "offset": 0,
+        "complete": false
+      },
+      "stats": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "winrate": null,
+        "totalPlaytimeSeconds": 0,
+        "mostPlayedChampion": null,
+        "champions": {},
+        "averageKda": null,
+        "averageCsPerMin": null,
+        "averageAiScoreWin": null,
+        "averageAiScoreLoss": null,
+        "aiWinSampleCount": 0,
+        "aiLossSampleCount": 0,
+        "averageGoldLead15NonSupport": null,
+        "goldLead15SampleCount": 0,
+        "fateCounts": {
+          "Godlike": 0,
+          "Solid": 0,
+          "Balanced": 0,
+          "Messy": 0,
+          "Doomed": 0,
+          "Unavailable": 0
         },
-        "leblancLpNet": -21,
-        "leblancLpTrackedGames": 1,
-        "advancedTrackerVersion": "leblanc-advanced-v4"
+        "roleCounts": {
+          "TOP": 0,
+          "JUNGLE": 0,
+          "MIDDLE": 0,
+          "BOTTOM": 0,
+          "UTILITY": 0,
+          "UNKNOWN": 0
+        }
       }
     }
-  },
-  "trackerSchemaVersion": "leblanc-advanced-v4",
-  "activePlayerLabels": [
-    "Jeff Li: The Journey to Emerald"
-  ]
+  }
 }
